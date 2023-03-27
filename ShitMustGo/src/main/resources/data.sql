@@ -1,0 +1,1 @@
+INSERT INTO Account (first_name, last_Name, username, password, phone_number, email, adress, cardnumber) values ('Jonathan', 'Henriksson', 'Hej', '123', '0705272958', 'Hej@email.com', 'Gymnasievägen 9', '55555555');
