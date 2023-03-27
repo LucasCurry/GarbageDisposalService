@@ -13,6 +13,7 @@
 
 <ul>
     <li> <a href="/">Home</a> </li>
+    <li> <a href="/login">Login/Signup</a> </li>
     <li> <a href="/contact">Contact</a> </li>
     <li> <a href="/customerservice">Customer Service</a></li>
 </ul>
@@ -28,12 +29,17 @@
     </div>
 </div>
 
-<div>
-    <img>
-    <p></p>
-    <p></p>
-    <button><a></a></button>
-</div>
+    Recent tasks
+    <div>
+
+        <tr th:each="task : ${task}">
+            <th><a th:href="'/task/' + ${task.id}" th:text="${task.title}"></a></th>
+            <th th:text="${task.address}"></th>
+            <th th:text="${task.price}"></th>
+            <a th:href="'/task/' + ${task.id}"><img th:class="img" th:src="${task.image}" alt=""></a>
+        </tr>
+
+    </div>
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,7 +17,7 @@ public class Account {
     String password;
     String phoneNumber;
     String email;
-    String adress;
+    String address;
     String cardnumber;
 
 
@@ -32,7 +32,7 @@ public class Account {
         this.password = password;
         this.phoneNumber = phoneNumber;
         this.email = email;
-        this.adress = adress;
+        this.address = adress;
         this.cardnumber = cardnumber;
     }
 
