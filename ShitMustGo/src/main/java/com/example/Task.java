@@ -11,6 +11,7 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     String title;
+    String description;
     String address;
     String image;
     int price;
@@ -24,6 +25,7 @@ public class Task {
         this.address = address;
         this.image = image;
         this.price = price;
+        this.description = description;
     }
 
     public String getImage() {
@@ -64,6 +66,14 @@ public class Task {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override

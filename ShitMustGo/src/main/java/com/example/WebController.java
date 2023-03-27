@@ -28,7 +28,7 @@ public class WebController {
     }
     @GetMapping("/task/{id}")
     String task(Model model, @PathVariable(required = true) Long id) {
-        model.addAttribute("task",task.findById(id));
+        model.addAttribute("task",task.findById(id).get());
         return "task";
     }
 
