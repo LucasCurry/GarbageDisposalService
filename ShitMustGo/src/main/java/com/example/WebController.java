@@ -15,16 +15,26 @@ public class WebController {
     @Autowired
     AccountRepo accountRepo;
     @Autowired
-    TaskRepo task;
+    TaskRepo taskRepo;
 
+
+    //Frontpage Controller
     @GetMapping("/")
     String home(Model model) {
         Account account = accountRepo.findById(1L).get();
         model.addAttribute("username", account.getUsername());
-        model.addAttribute("task", task.findAll());
+        model.addAttribute("task", taskRepo.findAll());
         return "home";
     }
 
+    //TaskPage Controller
+    @GetMapping("/task/{id}")
+    String task(Model model, @PathVariable(required = true) Long id) {
+        model.addAttribute("task",taskRepo.findById(id).get());
+        return "task";
+    }
+
+    //Login Controllers
     @GetMapping("/login")
     String login() {
         return "login";
@@ -44,17 +54,14 @@ public class WebController {
     }
 
 
-    @GetMapping("/task/{id}")
-    String task(Model model, @PathVariable(required = true) Long id) {
-        model.addAttribute("task",task.findById(id).get());
-        return "task";
-    }
-
+    //Access testing
     @GetMapping("/secret")
     String secret() {
         return "secret";
     }
 
+
+    //Registration Controllers
     @GetMapping("/register")
     String register(){
         return "register";

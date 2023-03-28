@@ -14,6 +14,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
+    //Configure Security
     @Bean
     @Order(1)
     public SecurityFilterChain auth0FilterChain(HttpSecurity http) throws Exception {
@@ -26,6 +27,8 @@ public class SecurityConfig {
         return http.build();
     }
 
+
+    //Users
     @Bean
     public UserDetailsService userDetailsService() {
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
