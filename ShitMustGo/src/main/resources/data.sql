@@ -1,4 +1,4 @@
-INSERT INTO Account (first_name, last_Name, username, password, phone_number, email, address, cardnumber) values ('Jonathan', 'Henriksson', 'Hej', '123', '0705272958', 'Hej@email.com', 'Gymnasievägen 9', '55555555');
+INSERT INTO Account (first_name, last_Name, username, password, phone_number, email, address, cardnumber) values ('Jonathan', 'Henriksson', 'Hej', '$2a$11$ebZxgeA7F2u//ra0.y6FAOO30a5IrDS99P1FnaFvwBTpy.poKOajS', '0705272958', 'Hej@email.com', 'Gymnasievägen 9', '55555555');
 
 INSERT INTO Task (title, address, price, image, description) values ('Sophämtning', 'Börjegatan 123', 300, 'https://www.hem.se/contentassets/40cd4a5bddf14b869cc91d4db145b748/soppasar_rityta_12.png?width=800', 'Sopberg');
 INSERT INTO Task (title, address, price, image, description) values ('Fryshämtning', 'Örjansvägen 13', 279, 'https://www.elgiganten.se/image/dv_web_D180001002200412/15554/matsui-frys-muf48w19e--pdp_zoom-3000--pdp_main-960.jpg', 'HJÄLP!');

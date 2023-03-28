@@ -17,7 +17,8 @@
                     <p th:class="name" th:text="'Pris: ' + ${task.price} + ' kr'"></p>
                     <form th:action="@{'/task/' + ${task.id}}" method="post">
                         <input type="submit" th:class="book" value="BOKA">
-            </div>
+                    </form>
+                </div>
         </div>
 
 </body>
