@@ -36,15 +36,13 @@ public class WebController {
     @GetMapping("/")
     String home(Model model) {
         Long id = accService.getAccountId();
-        System.out.println(id);
-        //model.addAttribute("username", account.username);
         model.addAttribute("task", taskRepo.findAll());
         return "home";
     }
 
     //TaskPage Controller
     @GetMapping("/task/{id}")
-    String task(Model model, @PathVariable(required = true) Long id) {
+    String task(Model model, @PathVariable Long id) {
         model.addAttribute("task",taskRepo.findById(id).get());
         return "task";
     }
