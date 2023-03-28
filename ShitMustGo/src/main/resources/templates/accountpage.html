@@ -9,7 +9,7 @@
     <h1>ShotMustGo</h1>
     <h2 th:text="'Välkommen ' + ${account}">Välkommen</h2>
 
-    <a th:href="'/account/' +${accountId}+ '/create'">Skapa ny annons</a>
+    <a href="/account/create">Skapa ny annons</a>
 
     <p>Dina annonser:</p>
     <tr th:each="task : ${task}">

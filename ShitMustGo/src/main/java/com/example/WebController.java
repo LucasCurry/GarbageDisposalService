@@ -1,9 +1,13 @@
 package com.example;
 
 import com.example.repos.AccountRepo;
+import com.example.repos.AccountService;
 import com.example.repos.TaskRepo;
 import com.example.repos.TaskService;
+import org.springframework.security.core.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,10 +17,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class WebController {
+
+    @Autowired
+    AccountService accService;
     @Autowired
     AccountRepo accountRepo;
     @Autowired
     TaskRepo taskRepo;
+
+    @Autowired
+    PasswordEncoder passEnco;
 
     @Autowired
     TaskService taskService;
@@ -25,8 +35,9 @@ public class WebController {
     //Frontpage Controller
     @GetMapping("/")
     String home(Model model) {
-        Account account = accountRepo.findById(1L).get();
-        model.addAttribute("username", account.getUsername());
+        Long id = accService.getAccountId();
+        System.out.println(id);
+        //model.addAttribute("username", account.username);
         model.addAttribute("task", taskRepo.findAll());
         return "home";
     }
@@ -44,11 +55,11 @@ public class WebController {
         return "login";
     }
 
-    @PostMapping("/login")
+    /*@PostMapping("/login")
     String loggedIn(Model model, @RequestParam String username, @RequestParam String password){
         model.addAttribute("username", username);
         model.addAttribute("password", password);
-//        model.addAttribute("accountId", accountRepo.findByUsername(username).getId());
+        model.addAttribute("accountId", accountRepo.findByUsername(username).getId());
         System.out.println(username);
         System.out.println(password);
         Account account = accountRepo.findByUsernameAndPassword(username, password);
@@ -56,33 +67,36 @@ public class WebController {
             return "redirect:/account/" + account.id;
         }
         return "login";
-    }
+    }*/
 
-    @GetMapping("/account/{accountId}")
-    String accountpage(Model model, @PathVariable Long accountId) {
-        model.addAttribute("accountId", accountId);
-        model.addAttribute("account", accountRepo.findById(accountId).get().username);
-        model.addAttribute("task", taskRepo.findAllByAccountId(accountId));
+    @GetMapping("/account")
+    String accountpage(Model model) {
+        Long id = accService.getAccountId();
+        model.addAttribute("accountId", id);
+        model.addAttribute("account", accountRepo.findById(id).get().username);
+        model.addAttribute("task", taskRepo.findAllByAccountId(id));
         return "accountpage";
     }
 
-    @GetMapping("/account/{accountId}/create")
-    String createTask(Model model, @PathVariable Long accountId) {
-        model.addAttribute("accountId", accountId);
+    @GetMapping("/account/create")
+    String createTask(Model model) {
+        Long id = accService.getAccountId();
+        model.addAttribute("accountId", id);
         return "createTask";
     }
 
-    @PostMapping ("/account/{accountId}/create")
-    String postCreateTask(Model model, @PathVariable Long accountId, @RequestParam String title, @RequestParam String description, @RequestParam int price, @RequestParam String image) {
+    @PostMapping ("/account/create")
+    String postCreateTask(Model model, @RequestParam String title, @RequestParam String description, @RequestParam int price, @RequestParam String image) {
+        Long id = accService.getAccountId();
         model.addAttribute("title", title);
         model.addAttribute("description", description);
         model.addAttribute("price", price);
         model.addAttribute("image", image);
-        model.addAttribute("accountId", accountId);
-        Task task = new Task(title, accountRepo.findById(accountId).get().address, image, price, description, accountId);
+        model.addAttribute("accountId", id);
+        Task task = new Task(title, accountRepo.findById(id).get().address, image, price, description, id);
         taskService.addTask(task);
 
-        return "redirect:/account/{accountId}";
+        return "redirect:/";
     }
 
 
@@ -104,7 +118,7 @@ public class WebController {
         if (accountRepo.findByUsername(username) == null){
             if (accountRepo.findByEmail(email) == null){
                 if (password.equals(passwordControll)){
-                    Account account = new Account(firstname, lastname,username,password, phonenumber, email, address, cardnumber);
+                    Account account = new Account(firstname, lastname,username,passEnco.encode(password), phonenumber, email, address, cardnumber);
                     accountRepo.save(account);
                     return "redirect:/login";
                 }
