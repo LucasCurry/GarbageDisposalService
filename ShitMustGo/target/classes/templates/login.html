@@ -6,13 +6,14 @@
 </head>
 <body>
 
-  <form>
-    <form th:action="@{/login}" METHOD="post">
+
+    <form action="/login" method="post">
       <input type="text" name="username">
       <input type="password" name="password">
       <input type="submit">
     </form>
-  </form>
+    <a href="/register"> <button>Sign up</button></a>
+
 
 </body>
 </html>
