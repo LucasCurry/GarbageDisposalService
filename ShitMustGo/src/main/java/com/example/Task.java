@@ -1,12 +1,15 @@
 package com.example;
 
+import com.example.repos.AccountRepo;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 public class Task {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
@@ -15,17 +18,18 @@ public class Task {
     String address;
     String image;
     int price;
+    Long accountId;
 
     public Task() {
     }
 
-    public Task(Long id, String title, String address, String image, int price, String description) {
-        this.id = id;
+    public Task(String title, String address, String image, int price, String description, Long accountId) {
         this.title = title;
         this.address = address;
         this.image = image;
         this.price = price;
         this.description = description;
+        this.accountId = accountId;
     }
 
     public String getImage() {

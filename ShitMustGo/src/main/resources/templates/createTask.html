@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <H2>Skapa ny annons</H2>
+
+    <form th:class="new-task" th:action="'/account/'+${accountId}+'/create'" method="post">
+        <input type="text" name="title" placeholder="Rubrik">
+        <input type="text" name="description" placeholder="Beskrivning">
+        <input type="number" name="price" placeholder="Pris">
+        <input type="text" name="image" placeholder="Bild">
+        <input type="submit" value="Skapa">
+    </form>
+</body>
+</html>

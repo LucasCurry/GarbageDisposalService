@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+
+    <h1>ShotMustGo</h1>
+    <h2 th:text="'Välkommen ' + ${account}">Välkommen</h2>
+
+    <a th:href="'/account/' +${accountId}+ '/create'">Skapa ny annons</a>
+
+    <p>Dina annonser:</p>
+    <tr th:each="task : ${task}">
+        <th><a th:href="'/task/' + ${task.id}" th:text="${task.title}"></a></th>
+        <th th:text="${task.address}"></th>
+        <th th:text="${task.price}"></th>
+        <a th:href="'/task/' + ${task.id}"><img th:class="img" th:src="${task.image}" alt=""></a>
+    </tr>
 
 </body>
 </html>
