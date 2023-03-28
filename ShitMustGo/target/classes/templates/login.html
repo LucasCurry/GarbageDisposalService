@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Shi Mu Go Login</title>
-    <link rel="icon" type="image/x-icon" href="garbage-truck.png">
+    <link rel="icon" type="image/x-icon" href="/images/garbage-truck.png">
 </head>
 <body>
             <!-- Login From-->
-    <form action="/login" method="post">
+    <form th:action="@{/login}" method="post">
       <input type="text" name="username">
       <input type="password" name="password">
       <input type="submit">
