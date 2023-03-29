@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Controller
@@ -31,64 +32,37 @@ public class WebController {
     TaskService taskService;
 
 
-    //Frontpage Controller
+    //Frontpage Controller + Print tasks
     @GetMapping("/")
     String home(Model model) {
         Long id = accService.getAccountId();
         model.addAttribute("task", taskRepo.findAll());
         return "home";
     }
-    @PostMapping("/")
-    String postHome(Model model, @RequestParam(required = false, defaultValue = "") String cities, @RequestParam(required = false, defaultValue = "") String sorting) {
-        System.out.println(taskRepo.findAllByCity(cities));
-        if(cities.equals("") && sorting.equals("")) {
-            return "redirect:/";
-        }
-        else if(sorting.equals("")) {
-            model.addAttribute("task",taskRepo.findAllByCity(cities));
-            return "home";
-        }
+
+    //Sorting Tasks
+   @PostMapping("/")
+    String sortCity(Model model, @RequestParam(required = false, defaultValue = "") String cities, @RequestParam(required = false, defaultValue = "") String sorting) {
+       List<Task> tasks = taskService.sortList(cities, sorting);
+       model.addAttribute("task", tasks);
         return "home";
     }
 
-/*    @PostMapping("/")
-    String sortCity(Model model, @RequestParam String cities) {
-
-        return "redirect:/{city}";
-    }
-
-    @GetMapping("/{city}")
-    String sortedByCity (Model model, String city) {
-        model.addAttribute("task", taskRepo.findAllByCity(city));
-        return "home";
-    }*/
 
     //TaskPage Controller
     @GetMapping("/task/{id}")
     String task(Model model, @PathVariable Long id) {
+
         model.addAttribute("task",taskRepo.findById(id).get());
         return "task";
     }
+
 
     //Login Controllers
     @GetMapping("/login")
     String login() {
         return "login";
     }
-
-    /*@PostMapping("/login")
-    String loggedIn(Model model, @RequestParam String username, @RequestParam String password){
-        model.addAttribute("username", username);
-        model.addAttribute("password", password);
-        model.addAttribute("accountId", accountRepo.findByUsername(username).getId());
-        System.out.println(username);
-        System.out.println(password);
-        Account account = accountRepo.findByUsernameAndPassword(username, password);
-        if (account != null){
-            return "redirect:/account/" + account.id;
-        }
-        return "login";
-    }*/
 
     @GetMapping("/account")
     String accountpage(Model model) {
