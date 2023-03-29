@@ -39,7 +39,7 @@
     Recent tasks
 
     <div class="tasks">
-    <article th:each="task : ${task}"class="task">
+    <article th:each="task : ${task}" class="task">
 
         <tr>
             <th><a th:href="'/task/' + ${task.id}" th:text="${task.title}"></a></th>
