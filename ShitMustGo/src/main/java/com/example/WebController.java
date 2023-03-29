@@ -148,4 +148,9 @@ public class WebController {
 
         return "register";
     }
+
+    @GetMapping("/chat")
+    String chat() {
+        return "chat";
+    }
 }
