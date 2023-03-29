@@ -10,9 +10,20 @@
     <form th:class="new-task" action="/account/create" method="post">
         <input type="text" name="title" placeholder="Rubrik">
         <input type="text" name="description" placeholder="Beskrivning">
+        <input type="text" name="city" placeholder="Stad">
         <input type="number" name="price" placeholder="Pris">
         <input type="text" name="image" placeholder="Bild">
+        <label for="cities">
+
+            <select name="cities" id="cities">
+                <option value="Stockholm">Stockholm</option>
+                <option value="Göteborg">Göteborg</option>
+                <option value="Malmö">Malmö</option>
+            </select>
+
+        </label>
         <input type="submit" value="Skapa">
+
     </form>
 </body>
 </html>

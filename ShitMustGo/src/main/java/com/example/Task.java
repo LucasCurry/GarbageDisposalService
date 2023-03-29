@@ -16,6 +16,7 @@ public class Task {
     String title;
     String description;
     String address;
+    String city;
     String image;
     int price;
     Long accountId;
@@ -23,9 +24,10 @@ public class Task {
     public Task() {
     }
 
-    public Task(String title, String address, String image, int price, String description, Long accountId) {
+    public Task(String title, String address, String city, String image, int price, String description, Long accountId) {
         this.title = title;
         this.address = address;
+        this.city = city;
         this.image = image;
         this.price = price;
         this.description = description;

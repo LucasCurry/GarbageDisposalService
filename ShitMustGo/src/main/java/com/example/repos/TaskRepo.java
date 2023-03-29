@@ -12,4 +12,5 @@ public interface TaskRepo extends CrudRepository<Task,Long> {
 
     List<Task> findAllByAccountId(Long Id);
 
+    List<Task> findAllByCity(String city);
 }
