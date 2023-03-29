@@ -7,11 +7,11 @@
     <link rel="icon" type="image/x-icon" href="/images/garbage-truck.png">
 </head>
 <body>
- <!-- Nav bar -->
-<h1>ShitMustGo</h1>
-<div></div>
+    <!-- Nav bar -->
+   <nav><h1>ShitMustGo</h1>
 
-<ul>
+
+<ul class="navbar">
     <li> <a href="/">Home</a> </li>
     <li> <a href="/login">Login/Signup</a> </li>
     <li> <a href="/contact">Contact</a> </li>
@@ -20,6 +20,7 @@
  <a href="/account">Account</a>
 
  <input type="submit" value="Logout">
+   </nav>
 
     <!-- Oklart vad detta ska användas till nån dropdown function-->
     <!--Class finns ej än-->
@@ -36,14 +37,17 @@
 
     <!-- Show list of tasks -->
     Recent tasks
-    <div>
 
-        <tr th:each="task : ${task}">
+    <div class="tasks">
+    <article th:each="task : ${task}"class="task">
+
+        <tr>
             <th><a th:href="'/task/' + ${task.id}" th:text="${task.title}"></a></th>
             <th th:text="${task.address}"></th>
             <th th:text="${task.price}"></th>
             <a th:href="'/task/' + ${task.id}"><img th:class="img" th:src="${task.image}" alt=""></a>
         </tr>
+    </article>
 
     </div>
 

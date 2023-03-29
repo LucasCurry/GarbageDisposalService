@@ -1,4 +1,23 @@
-/* Dropdown Button */
+/* Dropdown Button
+#f2f9f1 ljus mint
+#ddeedf;
+#b6cdbd;
+#5c715e; Militärgrön
+*/
+body{
+background: #f2f9f1;
+}
+nav{
+display: flex;
+justify-content: space-between;
+}
+li{
+display: inline-block;
+}
+.navbar{
+list-style-type: none;
+
+}
 .dropbtn {
   background-color: #04AA6D;
   color: white;
