@@ -35,6 +35,30 @@
     </div>
 </div>
 
+    <form action="/" method="post">
+    <label for="cities">
+        <select name="cities" id="cities">
+            <option value="" disabled selected>Choose city...</option>
+            <option value="Stockholm">Stockholm</option>
+            <option value="Göteborg">Göteborg</option>
+            <option value="Malmö">Malmö</option>
+        </select>
+    </label>
+
+    <label for="Sorting">
+        Tjena
+        <select name="Sorting" id="Sorting">
+            <option value="" disabled selected>Sort by</option>
+            <option value="HighPrice">Price descending</option>
+            <option value="LowPrice">Price ascending</option>
+            <option value="Recent">Recent</option>
+        </select>
+
+        <input type="submit" value="Apply filter">
+
+    </label>
+    </form>
+
     <!-- Show list of tasks -->
     Recent tasks
 
