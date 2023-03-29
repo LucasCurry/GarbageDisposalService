@@ -16,8 +16,10 @@
     <li> <a href="/login">Login/Signup</a> </li>
     <li> <a href="/contact">Contact</a> </li>
     <li> <a href="/customerservice">Customer Service</a></li>
+    <li><a href="/account">Account</a></li>
 </ul>
- <a href="/account">Account</a>
+
+       <a href="/account/create">Create Task</a>
 
  <input type="submit" value="Logout">
    </nav>
@@ -47,11 +49,11 @@
 
     <label for="Sorting">
         Tjena
-        <select name="Sorting" id="Sorting">
+        <select name="sorting" id="Sorting">
             <option value="" disabled selected>Sort by</option>
             <option value="HighPrice">Price descending</option>
             <option value="LowPrice">Price ascending</option>
-            <option value="Recent">Recent</option>
+            <!--<option value="Recent">Recent</option>-->
         </select>
 
         <input type="submit" value="Apply filter">
