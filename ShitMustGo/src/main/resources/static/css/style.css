@@ -6,11 +6,16 @@
 */
 body{
 background: #f2f9f1;
+margin-top: 0;
+margin-left: 0;
+margin-right: 0;
 }
 
 nav{
 display: flex;
 justify-content: space-between;
+background: #5c715e;
+margin-bottom: 25px;
 }
 
 li{

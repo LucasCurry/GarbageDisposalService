@@ -116,7 +116,6 @@ public class WebController {
         model.addAttribute("accountId", id);
         Task task = new Task(title, accountRepo.findById(id).get().address, cities, image, price, description, id);
         taskService.addTask(task);
-
         return "redirect:/";
     }
 
@@ -126,6 +125,7 @@ public class WebController {
     String secret() {
         return "secret";
     }
+
 
 
     //Registration Controllers

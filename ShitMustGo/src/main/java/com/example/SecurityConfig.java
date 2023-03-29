@@ -34,7 +34,7 @@ public class SecurityConfig {
 
         http
                 .authorizeHttpRequests()
-                .requestMatchers("/","/login","/register", "/css/**", "/images/**" ).permitAll()
+                .requestMatchers("/","/login","/register", "/css/**", "/images/**", "/task/**").permitAll()
                 .anyRequest().authenticated();
                 http.csrf().disable();
                 http.headers().frameOptions().disable();
@@ -46,16 +46,6 @@ public class SecurityConfig {
 
         return http.build();
     }
-
-
-    //Users
-  /*  @Bean
-    public UserDetailsService userDetailsService() {
-        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        manager.createUser(User.withDefaultPasswordEncoder().username("user").password("123").roles("USER").build());
-        manager.createUser(User.withDefaultPasswordEncoder().username("admin").password("123").roles("USER","ADMIN").build());
-        return manager;
-    }*/
 
     @Bean
     public PasswordEncoder encoder() {
