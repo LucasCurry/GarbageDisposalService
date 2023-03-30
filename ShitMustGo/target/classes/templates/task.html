@@ -15,10 +15,15 @@
 
     <ul class="navbar">
         <li> <a href="/">Home</a> </li>
-        <li sec:authorize="!isAuthenticated()"> <a  href="/login">Login/Signup</a> </li>
+        <li sec:authorize="!isAuthenticated()"> <a  href="/login">Sign in/Sign up</a> </li>
         <li> <a href="/contact">Contact</a> </li>
-        <li> <a href="/customerservice">Customer Service</a></li>
+        <li> <a href="/contact">FAQ</a> </li>
         <li sec:authorize="isAuthenticated()"><a href="/account">Account</a></li>
+        <li sec:authorize="hasRole('ADMIN')">
+            <form th:action="@{/logout}" method="POST" >
+                <input type="submit" value="Logout">
+            </form>
+        </li>
     </ul>
 </nav>
         <!-- Show task details -->
