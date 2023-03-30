@@ -46,6 +46,7 @@ border: 10px;
 margin-right: 25px;
 margin-top: 25px;
 color: #000000;
+content: "\a";
 }
 
 
@@ -141,4 +142,12 @@ text-align:center;
 
 .aboutus-div {
     background: #efefef;
+}
+
+.accountWel{
+text-align: center;
+}
+
+.pAcc{
+text-align: center;
 }
