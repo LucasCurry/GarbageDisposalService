@@ -34,7 +34,7 @@ public class SecurityConfig {
 
         http
                 .authorizeHttpRequests()
-                .requestMatchers("/","/login","/register", "/css/**", "/images/**", "/task/**").permitAll()
+                .requestMatchers("/","/login","/register", "/css/**", "/images/**", "/task/**", "/contact/**", "/customerservice/**").permitAll()
                 .anyRequest().authenticated();
                 http.csrf().disable();
                 http.headers().frameOptions().disable();

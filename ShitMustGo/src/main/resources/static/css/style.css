@@ -205,25 +205,47 @@ margin-top: 50px;
 }
 
 .signUpButton {
-  background-color: #4CAF50; /* Green */
+  background-color:#b6cdbd;  /* Green */
   border: none;
   border-radius: 16px;
   color: white;
-  padding: 7px 16px;
+  padding: 4px 16px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  margin-bottom: 20px;
 
 
 }
 
+.loginButton {
+  background-color: #b6cdbd; /* Green */
+  border: none;
+  border-radius: 16px;
+  color: white;
+  padding: 4px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+/*#4CAF50;*/
+.loginButton:hover {
+background-color: #ddeedf;
+color: black;
+}
+
 .signUpButton:hover {
-background-color: #b6cdbd;
+background-color: #ddeedf;
+color: black;
 }
 
 .loginH2{
 margin-top: 40px;
+margin-bottom: 0;
 color: white;
 
 }
