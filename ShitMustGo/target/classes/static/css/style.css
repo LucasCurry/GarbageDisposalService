@@ -130,6 +130,20 @@ text-align: center;
 text-align:center;
 }
 
+.article-image {
+    height: 50%;
+    width: 50%;
+    border: none;
+}
+
+.aboutus {
+    display: flex;
+}
+
+.aboutus-div {
+    background: #efefef;
+}
+
 .accountWel{
 text-align: center;
 }
