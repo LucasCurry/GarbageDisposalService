@@ -5,6 +5,10 @@
 #5c715e; Militärgrön
 */
 body{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 background: #f2f9f1;
 margin-top: 0;
 margin-left: 0;
@@ -15,7 +19,7 @@ nav{
 display: flex;
 justify-content: space-between;
 background: #5c715e;
-margin-bottom: 25px;
+width: 100%;
 }
 
 li{
@@ -30,8 +34,11 @@ li{
 }
 
 .tasks{
-    display: flex;
-    justify-content: space-evenly;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+   width: 1000px;
 }
 
 .task a {
@@ -42,10 +49,20 @@ li{
 .task{
 display: flex;
 flex-direction: column;
+justify-content: center;
+align-items: center;
 border: 10px;
-margin-right: 25px;
-margin-top: 25px;
+margin-right: 20px;
+margin-left: 20px;
+padding-top: 50px;
+padding-bottom: 25px;
 color: #000000;
+width: 25%;
+background-color: #ddeedf;
+border: solid 1px;
+border-radius: 15px;
+margin-bottom: 20px;
+margin-top: 20px;
 content: "\a";
 }
 
@@ -151,3 +168,80 @@ text-align: center;
 .pAcc{
 text-align: center;
 }
+
+
+
+/* login css */
+
+.login{
+display:flex;
+flex-direction: column;
+align-items: center;
+background-color: #5c715e;
+width: auto;
+height: auto;
+border-radius: 10px;
+padding-left: 100px;
+padding-right: 100px;
+margin-top: 75px;
+}
+
+.loginform{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.input{
+margin-top: 50px;
+border: 1px solid;
+border-radius: 15px;
+height: 20px;
+text-align: center;
+}
+
+.register{
+margin-top: 50px;
+}
+
+.signUpButton {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  border-radius: 16px;
+  color: white;
+  padding: 7px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+
+}
+
+.signUpButton:hover {
+background-color: #b6cdbd;
+}
+
+.loginH2{
+margin-top: 40px;
+color: white;
+
+}
+
+#password{
+margin-top: 25px;
+}
+
+.logindiv{
+display: flex;
+justify-content: space-between;
+}
+
+
+.aboutus-div{
+margin-bottom: 25px;
+padding-bottom: 25px;
+border: solid 1px;
+
+}
+
