@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -20,20 +20,27 @@
     </ul>
 </nav>
 
-    <h1>ShotMustGo</h1>
+<div class="accountWel">
+
     <h2 th:text="'Välkommen ' + ${account}">Välkommen</h2>
 
-    <a href="/account/create">Skapa ny annons</a>
+    <a href="/account/create"><button>Create Task</button></a>
+
+</div>
+
+<div class="pAcc">
 
     <p>Dina annonser:</p>
-    <tr th:each="task : ${task}">
+    <div th:each="task : ${task}">
+    <tr>
         <th><a th:href="'/task/' + ${task.id}" th:text="${task.title}"></a></th>
         <th th:text="${task.address}"></th>
         <th th:text="${task.price}"></th>
         <a th:href="'/task/' + ${task.id}"><img th:class="img" th:src="${task.image}" alt=""></a>
         <a th:href="'/account/'+${task.id}+'/delete'"><input type="submit" value="Delete"></a>
     </tr>
+    </div>
 
-
+</div>
 </body>
 </html>

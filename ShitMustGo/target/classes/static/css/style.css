@@ -47,7 +47,6 @@ margin-right: 25px;
 margin-top: 25px;
 color: #000000;
 content: "\a";
-
 }
 
 
@@ -129,4 +128,12 @@ text-align: center;
 
 .filter{
 text-align:center;
+}
+
+.accountWel{
+text-align: center;
+}
+
+.pAcc{
+text-align: center;
 }
