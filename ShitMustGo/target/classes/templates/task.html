@@ -15,10 +15,10 @@
 
     <ul class="navbar">
         <li> <a href="/">Home</a> </li>
-        <li> <a href="/login">Login/Signup</a> </li>
+        <li sec:authorize="!isAuthenticated()"> <a  href="/login">Login/Signup</a> </li>
         <li> <a href="/contact">Contact</a> </li>
         <li> <a href="/customerservice">Customer Service</a></li>
-        <li><a href="/account">Account</a></li>
+        <li sec:authorize="isAuthenticated()"><a href="/account">Account</a></li>
     </ul>
 </nav>
         <!-- Show task details -->
