@@ -30,8 +30,11 @@ li{
 }
 
 .tasks{
-    display: flex;
-    justify-content: space-evenly;
+    position: absolute;
+    left: 50%;
+    width: 800px;
+    margin-left: -400px;
+
 }
 
 .task a {
@@ -137,3 +140,53 @@ text-align: center;
 .pAcc{
 text-align: center;
 }
+
+
+
+/* login css */
+
+.login{
+display:flex;
+flex-direction: column;
+align-items: center;
+background-color: #5c715e;
+width: auto;
+height: auto;
+border-radius: 10px;
+padding-left: 100px;
+padding-right: 100px;
+}
+
+.loginform{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.input{
+margin-top: 50px;
+border: 1px solid;
+border-radius: 15px;
+height: 20px;
+text-align: center;
+}
+
+.register{
+margin-top: 50px;
+}
+
+.loginH2{
+margin-top: 40px;
+color: white;
+
+}
+
+#password{
+margin-top: 25px;
+}
+
+.logindiv{
+display: flex;
+justify-content: space-between;
+}
+

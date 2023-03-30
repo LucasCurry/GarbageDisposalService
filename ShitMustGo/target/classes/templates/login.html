@@ -21,12 +21,26 @@
     </ul>
 </nav>
             <!-- Login From-->
-    <form th:action="@{/login}" method="post">
-      <input type="text" name="username">
-      <input type="password" name="password">
-      <input type="submit" value="Login">
+
+<div class="logindiv">
+<div>
+</div>
+
+    <div class="login">
+        <h1 class="loginH2">Log In</h1>
+    <form class="loginform" th:action="@{/login}" method="post">
+      <input class="input" type="text" name="username" placeholder="Username">
+      <input class="input" id="password" type="password" name="password" placeholder="Password">
+      <input class="input" type="submit" value="Login">
     </form>
-    <a href="/register"> <button>Sign up</button></a>
+    <a class="register" href="/register"> <button>Sign up</button></a>
+
+    </div>
+
+
+<div></div>
+</div>
+
 
 
 </body>
