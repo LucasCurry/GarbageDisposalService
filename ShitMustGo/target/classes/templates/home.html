@@ -85,10 +85,10 @@
     <article th:each="task : ${task}" class="task">
 
         <tr>
+            <a th:href="'/task/' + ${task.id}"><img th:class="img" th:src="${task.image}" alt=""></a>
             <th><a th:href="'/task/' + ${task.id}" th:text="${task.title}"></a></th>
             <th th:text="${task.address}"></th>
             <th th:text="${task.price}"></th>
-            <a th:href="'/task/' + ${task.id}"><img th:class="img" th:src="${task.image}" alt=""></a>
         </tr>
     </article>
 
