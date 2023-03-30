@@ -24,10 +24,8 @@ public class WebController {
     AccountRepo accountRepo;
     @Autowired
     TaskRepo taskRepo;
-
     @Autowired
     PasswordEncoder passEnco;
-
     @Autowired
     TaskService taskService;
 
@@ -52,7 +50,6 @@ public class WebController {
     //TaskPage Controller
     @GetMapping("/task/{id}")
     String task(Model model, @PathVariable Long id) {
-
         model.addAttribute("task",taskRepo.findById(id).get());
         return "task";
     }
@@ -75,32 +72,18 @@ public class WebController {
 
     @GetMapping("/account/create")
     String createTask(Model model) {
-        Long id = accService.getAccountId();
-        model.addAttribute("accountId", id);
+        model.addAttribute("accountId", accService.getAccountId());
         return "createTask";
     }
 
     @PostMapping ("/account/create")
     String postCreateTask(Model model, @RequestParam String title, @RequestParam String description, @RequestParam String cities, @RequestParam int price, @RequestParam String image) {
         Long id = accService.getAccountId();
-        model.addAttribute("title", title);
-        model.addAttribute("description", description);
-        model.addAttribute("price", price);
-        model.addAttribute("image", image);
-        model.addAttribute("accountId", id);
+        accService.createTaskModelGen(model,title,description,price,image,id);
         Task task = new Task(title, accountRepo.findById(id).get().address, cities, image, price, description, id);
         taskService.addTask(task);
         return "redirect:/";
     }
-
-
-    //Access testing
-    @GetMapping("/secret")
-    String secret() {
-        return "secret";
-    }
-
-
 
     //Registration Controllers
     @GetMapping("/register")
@@ -110,21 +93,14 @@ public class WebController {
 
     @PostMapping("/register")
     String registerUser(@RequestParam String firstname, @RequestParam String lastname,@RequestParam String username, @RequestParam String password, @RequestParam String passwordControll, @RequestParam String email, @RequestParam String phonenumber, @RequestParam String address, @RequestParam String cardnumber){
-        if (accountRepo.findByUsername(username) == null){
-            if (accountRepo.findByEmail(email) == null){
-                if (password.equals(passwordControll)){
-                    Account account = new Account(firstname, lastname,username,passEnco.encode(password), phonenumber, email, address, cardnumber);
-                    accountRepo.save(account);
-                    return "redirect:/login";
-                }
-            }
-        }
-
-        return "register";
+        return accService.addUser(firstname,lastname,username,password,passwordControll,email,phonenumber,address,cardnumber);
     }
-
-    @GetMapping("/chat")
-    String chat() {
-        return "chat";
+/*    @GetMapping("/delete")
+    String deleteUser() {
+        return "deleteAcc";
     }
+    @PostMapping("/delete")
+    String postDeleteUser(@RequestParam Account account) {
+        return accService.deleteUser(account);
+    }*/
 }
