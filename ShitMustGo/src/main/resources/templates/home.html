@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Shi Mu Go</title>
@@ -9,15 +9,24 @@
     <link rel="icon" type="image/x-icon" href="/images/garbage-truck.png">
 </head>
 <body>
+
+<div>
+</div>
     <!-- Nav bar -->
     <nav><h1><a href="/">ShitMustGo</a></h1>
 
 <ul class="navbar">
     <li> <a href="/">Home</a> </li>
-    <li> <a href="/login">Login/Signup</a> </li>
+    <li sec:authorize="!hasRole('ADMIN')"> <a href="/login">Login/Signup</a> </li>
     <li> <a href="/contact">Contact</a> </li>
     <li> <a href="/customerservice">Customer Service</a></li>
-    <li><a href="/account">Account</a></li>
+    <li sec:authorize="hasRole('ADMIN')"><a href="/account">Account</a></li>
+   <!-- <li sec:authorize="hasRole('ADMIN')"><a href="/delete">Delete Account</a></li> -->
+    <li sec:authorize="hasRole('ADMIN')">
+        <form th:action="@{/logout}" method="POST" >
+        <input type="submit" value="Logout">
+    </form>
+    </li>
 </ul>
 
        <a href="/account/create">Create Task</a>
@@ -28,16 +37,19 @@
 
     <!-- Oklart vad detta ska användas till nån dropdown function-->
     <!--Class finns ej än-->
-<!--<div class="dropdown">
-    &lt;!&ndash;    Class finns ej än&ndash;&gt;
+<!-- <div class="dropdown">
+       Class finns ej än
     <button class="dropbtn">Dropdown</button>
-    &lt;!&ndash;    Class finns ej än&ndash;&gt;
+     Class finns ej än
     <div class="dropdown-content">
         <a href="#">Link 1</a>
         <a href="#">Link 2</a>
         <a href="#">Link 3</a>
     </div>
-</div>-->
+</div> -->
+    <div class="filter">
+
+        <a sec:authorize="isAuthenticated()" href="/account/create">Create Task</a>
 
     <form action="/" method="post">
     <label for="cities">
@@ -50,7 +62,6 @@
     </label>
 
     <label for="Sorting">
-        Tjena
         <select name="sorting" id="Sorting">
             <option value="" disabled selected>Sort by</option>
             <option value="HighPrice">Price descending</option>
@@ -62,9 +73,13 @@
 
     </label>
     </form>
+    </div>
 
     <!-- Show list of tasks -->
-    Recent tasks
+<div class="taskH3">
+    <h3>Recent Tasks</h3>
+</div>
+
 
     <div class="tasks">
     <article th:each="task : ${task}" class="task">
