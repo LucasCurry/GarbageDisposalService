@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Controller
 public class WebController {
@@ -77,10 +78,10 @@ public class WebController {
     }
 
     @PostMapping ("/account/create")
-    String postCreateTask(Model model, @RequestParam String title, @RequestParam String description, @RequestParam String cities, @RequestParam int price, @RequestParam String image) {
+    String postCreateTask(Model model, @RequestParam String title, @RequestParam String description, @RequestParam int price, @RequestParam String image) {
         Long id = accService.getAccountId();
         accService.createTaskModelGen(model,title,description,price,image,id);
-        Task task = new Task(title, accountRepo.findById(id).get().address, cities, image, price, description, id);
+        Task task = new Task(title, accountRepo.findById(id).get().address, image, price, description, id);
         taskService.addTask(task);
         return "redirect:/";
     }
@@ -95,11 +96,12 @@ public class WebController {
     String registerUser(@RequestParam String firstname, @RequestParam String lastname,@RequestParam String username, @RequestParam String password, @RequestParam String passwordControll, @RequestParam String email, @RequestParam String phonenumber, @RequestParam String address, @RequestParam String cardnumber){
         return accService.addUser(firstname,lastname,username,password,passwordControll,email,phonenumber,address,cardnumber);
     }
-/*    @GetMapping("/delete")
-    String deleteUser() {
-        return "deleteAcc";
+    @GetMapping("/account/{id}/delete")
+    String deleteTask(@PathVariable Long id) {
+        taskRepo.deleteById(id);
+        return "redirect:/account";
     }
-    @PostMapping("/delete")
+/*    @PostMapping("/account/delete")
     String postDeleteUser(@RequestParam Account account) {
         return accService.deleteUser(account);
     }*/

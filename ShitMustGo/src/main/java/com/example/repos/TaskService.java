@@ -1,13 +1,11 @@
 package com.example.repos;
 
-import com.example.Account;
 import com.example.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import java.util.List;
-import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class TaskService {
@@ -72,4 +70,9 @@ public class TaskService {
         }
         return tasks;
     }
+//    public String deleteTask(Optional<Task> task) {
+//        taskRepo.delete();
+//        taskRepo.
+//        return "redirect:/account";
+//    }
 }
