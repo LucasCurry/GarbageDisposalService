@@ -88,11 +88,21 @@
             <a th:href="'/task/' + ${task.id}"><img th:class="img" th:src="${task.image}" alt=""></a>
             <th><a th:href="'/task/' + ${task.id}" th:text="${task.title}"></a></th>
             <th th:text="${task.address}"></th>
-            <th th:text="${task.price}"></th>
+            <th th:text="${task.price}+' kr'"></th>
         </tr>
     </article>
 
     </div>
+
+<div class="aboutus-div">
+    <article class="aboutus">
+        <h3>Shit-Must-Go finns för dig som inte vill eller kan åka till ÅVC. Genom att samarbeta så kan vi hjälpas åt!</h3>
+        <br>
+        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. It usually begins with:</p>
+
+        <img src="/images/SHI-MU-GO.png" class="article-image">
+    </article>
+</div>
 
 </body>
 </html>
