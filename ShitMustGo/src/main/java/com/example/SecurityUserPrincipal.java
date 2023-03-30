@@ -23,13 +23,13 @@ public class SecurityUserPrincipal implements UserDetails {
         return authorities;
     }
 
-    // the getPassword method in SecurityUserPrincipal is using the password in our admin object
+    // the getPassword method in SecurityUserPrincipal is using the password in our account object
     @Override
     public String getPassword() {
         return account.getPassword();
     }
 
-    // the getUsername method in SecurityUserPrincipal is using the username in our admin object
+    // the getUsername method in SecurityUserPrincipal is using the username in our account object
     @Override
     public String getUsername() {
         return account.getUsername();
