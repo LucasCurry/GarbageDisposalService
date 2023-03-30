@@ -105,4 +105,9 @@ public class WebController {
     String postDeleteUser(@RequestParam Account account) {
         return accService.deleteUser(account);
     }*/
+
+    @GetMapping("/faq")
+    String faq() {
+        return "faq";
+    }
 }
