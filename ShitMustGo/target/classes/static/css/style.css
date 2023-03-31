@@ -131,11 +131,12 @@ img {
 
 h1 {
     margin-left: 10px;
+    text-decoration: none !important;
 }
 
 
 a {
-    text-decoration: none;
+    text-decoration: none !important;
     color: white;
 }
 
@@ -264,6 +265,14 @@ justify-content: space-between;
 margin-bottom: 25px;
 padding-bottom: 25px;
 border: solid 1px;
+
+}
+
+.navbarFaq{
+margin-bottom: 0;
+}
+
+.h1Faq{
 
 }
 

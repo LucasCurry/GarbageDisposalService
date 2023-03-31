@@ -72,7 +72,7 @@
             <option value="" disabled selected>Sort by</option>
             <option value="HighPrice">Price descending</option>
             <option value="LowPrice">Price ascending</option>
-            <!--<option value="Recent">Recent</option>-->
+            <option value="Recent">Recent</option>
         </select>
 
         <input type="submit" value="Apply filter">
@@ -92,9 +92,11 @@
 
         <tr>
             <a th:href="'/task/' + ${task.id}"><img th:class="img" th:src="${task.image}" alt=""></a>
-            <th><a th:href="'/task/' + ${task.id}" th:text="${task.title}"></a></th>
-            <th th:text="${task.address}"></th>
-            <th th:text="${task.price}+' kr'"></th>
+            <th><a th:href="'/task/' + ${task.id}" th:text="${task.title}"></a></th><br>
+            Stad: <th th:text="${task.city}"></th><br>
+            Adress: <th th:text="${task.address}"></th><br>
+            Pris: <th th:text="${task.price}+' kr'"></th><br>
+            Skapad: <th th:text="${task.createdAt}"></th><br>
         </tr>
     </article>
 
