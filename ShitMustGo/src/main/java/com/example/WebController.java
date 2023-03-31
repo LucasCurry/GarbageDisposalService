@@ -4,6 +4,9 @@ import com.example.repos.AccountRepo;
 import com.example.repos.AccountService;
 import com.example.repos.TaskRepo;
 import com.example.repos.TaskService;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.core.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -12,12 +15,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
 @Controller
 public class WebController {
+
     @Autowired
     AccountService accService;
     @Autowired
@@ -96,7 +101,7 @@ public class WebController {
     String postCreateTask(Model model, @RequestParam String title, @RequestParam String description, @RequestParam int price, @RequestParam String image, @RequestParam String cities) {
         Long id = accService.getAccountId();
         accService.createTaskModelGen(model, title, description, price, image, id);
-        Task task = new Task(title, accountRepo.findById(id).get().address, image, price, description, id, cities);
+        Task task = new Task(title, accountRepo.findById(id).get().address, image, price, description, id, cities, LocalDateTime.now());
         taskService.addTask(task);
         return "redirect:/";
     }
@@ -127,6 +132,17 @@ public class WebController {
         return "redirect:/account";
     }
 
+    @GetMapping("/account/{id}/deleteUser")
+    String deleteUser(@PathVariable Long id, Model model, HttpServletRequest request) {
+        model.addAttribute("accountId", accountRepo.findById(id).get().id);
+        accountRepo.deleteById(id);
+        try {
+            request.logout();
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        }
+        return "redirect:/";
+    }
 
     @GetMapping("/faq")
     String faq() {
@@ -153,4 +169,3 @@ public class WebController {
         return "redirect:/account";
     }
 }
-

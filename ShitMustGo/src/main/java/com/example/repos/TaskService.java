@@ -70,9 +70,4 @@ public class TaskService {
         }
         return tasks;
     }
-//    public String deleteTask(Optional<Task> task) {
-//        taskRepo.delete();
-//        taskRepo.
-//        return "redirect:/account";
-//    }
 }

@@ -10,9 +10,6 @@ import java.util.List;
 public interface AccountRepo extends CrudRepository<Account, Long> {
 
     Account findByUsernameAndPassword(String username, String password);
-
     Account findByUsername(String username);
-
-
     Account findByEmail(String email);
 }
