@@ -7,6 +7,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.time.LocalDateTime;
+
 @Entity
 public class Task {
 
@@ -21,19 +23,27 @@ public class Task {
     int price;
     Long accountId;
     Long bookedId;
+    LocalDateTime createdAt;
 
     public Task() {
     }
 
-    public Task(String title, String address, String image, int price, String description, Long accountId) {
+    public Task(String title, String address, String image, int price, String description, Long accountId, LocalDateTime createdAt) {
         this.title = title;
         this.address = address;
         this.image = image;
         this.price = price;
         this.description = description;
         this.accountId = accountId;
+        this.createdAt = createdAt;
+    }
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
     public String getImage() {
         return image;
     }
