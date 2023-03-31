@@ -70,11 +70,6 @@ public class WebController {
         task.setBookedId(accountId);
         taskRepo.save(task);
 
-
-        System.out.println(accountId);
-        System.out.println(taskRepo.findById(id).get().getBookedId());
-
-
         return "redirect:/task/" + id;
     }
 

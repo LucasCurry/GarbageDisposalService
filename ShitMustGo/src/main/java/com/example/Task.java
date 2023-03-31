@@ -1,10 +1,7 @@
 package com.example;
 
 import com.example.repos.AccountRepo;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
@@ -23,6 +20,7 @@ public class Task {
     int price;
     Long accountId;
     Long bookedId;
+    //@Temporal(TemporalType.TIMESTAMP)
     LocalDateTime createdAt;
 
     public Task() {
