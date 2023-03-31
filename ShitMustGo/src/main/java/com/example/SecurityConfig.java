@@ -36,13 +36,15 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers("/","/login","/register", "/css/**", "/images/**", "/task/**", "/contact/**", "/customerservice/**", "/faq/**").permitAll()
                 .anyRequest().authenticated();
-                http.csrf().disable();
-                http.headers().frameOptions().disable();
-        http.formLogin()
+        http
+                .formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/", true)
                 .permitAll();
-        http.logout().logoutSuccessUrl("/");
+        http
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/");
 
         return http.build();
     }
