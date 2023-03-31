@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TaskService {
@@ -23,7 +22,7 @@ public class TaskService {
         } else if(sort.equals("")) {
             tasks = taskRepo.findAllByCity(city);
             return tasks;
-        }else if (city.equals("")){
+        } else if (city.equals("")){
         switch (sort) {
             case "HighPrice" -> {
                 tasks = taskRepo.findAllByOrderByPriceDesc();
@@ -33,8 +32,11 @@ public class TaskService {
                 tasks = taskRepo.findAllByOrderByPrice();
                 return tasks;
             }
+            case "Recent" -> {
+                tasks = taskRepo.findAllByOrderByCreatedAtDesc();
+            }
         }
-        }else if (city.equals("Stockholm")){
+        } else if (city.equals("Stockholm")){
             switch (sort) {
                 case "HighPrice" -> {
                     tasks = taskRepo.findByCityOrderByPriceDesc(city);
@@ -43,6 +45,9 @@ public class TaskService {
                 case "LowPrice" -> {
                     tasks = taskRepo.findByCityOrderByPrice(city);
                     return tasks;
+                }
+                case "Recent" -> {
+                    tasks = taskRepo.findByCityOrderByCreatedAtDesc(city);
                 }
             }
         }else if (city.equals("Göteborg")){
@@ -55,6 +60,9 @@ public class TaskService {
                     tasks = taskRepo.findByCityOrderByPrice(city);
                     return tasks;
                 }
+                case "Recent" -> {
+                    tasks = taskRepo.findByCityOrderByCreatedAtDesc(city);
+                }
             }
         }else if (city.equals("Malmö")){
             switch (sort) {
@@ -65,6 +73,9 @@ public class TaskService {
                 case "LowPrice" -> {
                     tasks = taskRepo.findByCityOrderByPrice(city);
                     return tasks;
+                }
+                case "Recent" -> {
+                    tasks = taskRepo.findByCityOrderByCreatedAtDesc(city);
                 }
             }
         }

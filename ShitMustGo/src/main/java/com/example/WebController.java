@@ -69,6 +69,7 @@ public class WebController {
         Task task = taskRepo.findById(id).get();
         task.setBookedId(accountId);
         taskRepo.save(task);
+
         return "redirect:/task/" + id;
     }
 
@@ -86,8 +87,6 @@ public class WebController {
         model.addAttribute("account", accountRepo.findById(id).get().firstName);
         model.addAttribute("task", taskRepo.findAllByAccountId(id));
         model.addAttribute("bookedTask", taskRepo.findAllByBookedId(id));
-
-
         return "accountpage";
     }
 
