@@ -279,6 +279,8 @@ margin-bottom: 0;
 .home{
 display: flex;
 flex-direction: column;
+justify-content: center;
+    align-items: center;
 }
 h3{
 font-style: italic;
