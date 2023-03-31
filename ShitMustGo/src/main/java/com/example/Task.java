@@ -90,6 +90,22 @@ public class Task {
         this.bookedId = bookedId;
     }
 
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public Long getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(Long accountId) {
+        this.accountId = accountId;
+    }
+
     @Override
     public String toString() {
         return "Task{" +
@@ -98,4 +114,6 @@ public class Task {
                 ", price=" + price +
                 '}';
     }
+
+
 }
