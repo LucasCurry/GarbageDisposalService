@@ -35,7 +35,8 @@ public class WebController {
     @GetMapping("/")
     String home(Model model) {
         Long id = accService.getAccountId();
-        model.addAttribute("task", taskRepo.findAll());
+       /* model.addAttribute("task", taskRepo.findAll());*/
+        model.addAttribute("task", taskRepo.findAllByBookedId(null));
         return "home";
     }
 
@@ -52,7 +53,25 @@ public class WebController {
     @GetMapping("/task/{id}")
     String task(Model model, @PathVariable Long id) {
         model.addAttribute("task",taskRepo.findById(id).get());
+        model.addAttribute("accountid", accService.getAccountId());
+        System.out.println(accService.getAccountId());
+
         return "task";
+    }
+
+    @PostMapping("/task/{id}")
+    String taskPost(Model model, @PathVariable Long id) {
+        Long accountId = accService.getAccountId();
+        Task task = taskRepo.findById(id).get();
+        task.setBookedId(accountId);
+        taskRepo.save(task);
+
+
+        System.out.println(accountId);
+        System.out.println(taskRepo.findById(id).get().getBookedId());
+
+
+        return "redirect:/task/" + id;
     }
 
 
@@ -66,8 +85,9 @@ public class WebController {
     String accountpage(Model model) {
         Long id = accService.getAccountId();
         model.addAttribute("accountId", id);
-        model.addAttribute("account", accountRepo.findById(id).get().username);
+        model.addAttribute("account", accountRepo.findById(id).get().firstName);
         model.addAttribute("task", taskRepo.findAllByAccountId(id));
+        model.addAttribute("bookedTask", taskRepo.findAllByBookedId(id));
         return "accountpage";
     }
 
@@ -86,6 +106,15 @@ public class WebController {
         return "redirect:/";
     }
 
+    @GetMapping("/account/{id}/avboka")
+    String avbokaTask(@PathVariable Long id) {
+        Task task = taskRepo.findById(id).get();
+        task.setBookedId(null);
+        taskRepo.save(task);
+
+        return "redirect:/account";
+    }
+
     //Registration Controllers
     @GetMapping("/register")
     String register(){
@@ -101,10 +130,7 @@ public class WebController {
         taskRepo.deleteById(id);
         return "redirect:/account";
     }
-/*    @PostMapping("/account/delete")
-    String postDeleteUser(@RequestParam Account account) {
-        return accService.deleteUser(account);
-    }*/
+
 
     @GetMapping("/faq")
     String faq() {

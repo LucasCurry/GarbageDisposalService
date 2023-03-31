@@ -32,7 +32,7 @@
     <a href="/account/create"><button>Create Task</button></a>
 
 </div>
-<p>Dina annonser:</p>
+<p>Dina jobb:</p>
 <div class="tasks">
 
     <article class="task" th:each="task : ${task}">
@@ -46,5 +46,19 @@
     </article>
 
 </div>
+<p>Bokade jobb:</p>
+<div class="tasks">
+
+    <article class="task" th:each="task : ${bookedTask}">
+        <tr>
+            <th><a th:href="'/task/' + ${task.id}" th:text="${task.title}"></a></th>
+            <th th:text="${task.address}"></th>
+            <th th:text="${task.price}"></th>
+            <a th:href="'/task/' + ${task.id}"><img th:class="img" th:src="${task.image}" alt=""></a>
+            <a th:href="'/account/'+${task.id}+'/avboka'"><input type="submit" value="Avboka"></a>
+        </tr>
+    </article>
+</div>
+
 </body>
 </html>

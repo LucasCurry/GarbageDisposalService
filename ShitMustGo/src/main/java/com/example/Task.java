@@ -20,6 +20,7 @@ public class Task {
     String image;
     int price;
     Long accountId;
+    Long bookedId;
 
     public Task() {
     }
@@ -81,6 +82,30 @@ public class Task {
         this.description = description;
     }
 
+    public Long getBookedId() {
+        return bookedId;
+    }
+
+    public void setBookedId(Long bookedId) {
+        this.bookedId = bookedId;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public Long getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(Long accountId) {
+        this.accountId = accountId;
+    }
+
     @Override
     public String toString() {
         return "Task{" +
@@ -89,4 +114,6 @@ public class Task {
                 ", price=" + price +
                 '}';
     }
+
+
 }
