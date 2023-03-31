@@ -35,7 +35,8 @@ public class WebController {
     @GetMapping("/")
     String home(Model model) {
         Long id = accService.getAccountId();
-        model.addAttribute("task", taskRepo.findAll());
+       /* model.addAttribute("task", taskRepo.findAll());*/
+        model.addAttribute("task", taskRepo.findAllByBookedId(null));
         return "home";
     }
 
@@ -53,6 +54,21 @@ public class WebController {
     String task(Model model, @PathVariable Long id) {
         model.addAttribute("task",taskRepo.findById(id).get());
         return "task";
+    }
+
+    @PostMapping("/task/{id}")
+    String taskPost(Model model, @PathVariable Long id) {
+        Long accountId = accService.getAccountId();
+        Task task = taskRepo.findById(id).get();
+        task.setBookedId(accountId);
+        taskRepo.save(task);
+
+
+        System.out.println(accountId);
+        System.out.println(taskRepo.findById(id).get().getBookedId());
+
+
+        return "redirect:/task/" + id;
     }
 
 

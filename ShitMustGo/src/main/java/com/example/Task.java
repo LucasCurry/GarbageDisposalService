@@ -20,6 +20,7 @@ public class Task {
     String image;
     int price;
     Long accountId;
+    Long bookedId;
 
     public Task() {
     }
@@ -79,6 +80,14 @@ public class Task {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Long getBookedId() {
+        return bookedId;
+    }
+
+    public void setBookedId(Long bookedId) {
+        this.bookedId = bookedId;
     }
 
     @Override
