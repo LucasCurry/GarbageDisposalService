@@ -276,3 +276,18 @@ margin-bottom: 0;
 
 }
 
+.home{
+display: flex;
+flex-direction: column;
+}
+h3{
+font-style: italic;
+Padding : 5px;
+color:#5c715e;
+}
+P{
+font-style: italic;
+padding-top: 50px;
+padding: 100px;
+color : #5c715e;
+}
