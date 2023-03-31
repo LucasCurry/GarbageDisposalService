@@ -35,8 +35,16 @@
 <p>Dina jobb:</p>
 <div class="tasks">
 
+
     <article class="task" th:each="task : ${task}">
-    <tr>
+        <p th:if="${task.bookedId != null && !task.isAccepted}">Du har en bokning</p>
+        <p th:if="${task.isAccepted}">Uppdraget är under utförande</p>
+        <form th:if="${task.bookedId != null && !task.isAccepted}" action="/decline" method="post">
+            <button th:value="${task.id}" name="id2" type="submit" formaction="/accept">Accept</button>
+        <button th:value="${task.id}" name="id" type="submit">Decline</button>
+        </form>
+        <tr>
+
         <th><a th:href="'/task/' + ${task.id}" th:text="${task.title}"></a></th>
         <th th:text="${task.address}"></th>
         <th th:text="${task.price}"></th>
@@ -50,6 +58,8 @@
 <div class="tasks">
 
     <article class="task" th:each="task : ${bookedTask}">
+        <p th:if="${task.isAccepted}">Uppdrag är Accepterat</p>
+        <p th:if="${task.isAccepted}">Går till uppdrag för mer info</p>
         <tr>
             <th><a th:href="'/task/' + ${task.id}" th:text="${task.title}"></a></th>
             <th th:text="${task.address}"></th>

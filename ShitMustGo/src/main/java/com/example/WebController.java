@@ -18,7 +18,6 @@ import java.util.Optional;
 
 @Controller
 public class WebController {
-
     @Autowired
     AccountService accService;
     @Autowired
@@ -35,16 +34,16 @@ public class WebController {
     @GetMapping("/")
     String home(Model model) {
         Long id = accService.getAccountId();
-       /* model.addAttribute("task", taskRepo.findAll());*/
+        /* model.addAttribute("task", taskRepo.findAll());*/
         model.addAttribute("task", taskRepo.findAllByBookedId(null));
         return "home";
     }
 
     //Sorting Tasks
-   @PostMapping("/")
+    @PostMapping("/")
     String sortCity(Model model, @RequestParam(required = false, defaultValue = "") String cities, @RequestParam(required = false, defaultValue = "") String sorting) {
-       List<Task> tasks = taskService.sortList(cities, sorting);
-       model.addAttribute("task", tasks);
+        List<Task> tasks = taskService.sortList(cities, sorting);
+        model.addAttribute("task", tasks);
         return "home";
     }
 
@@ -52,7 +51,7 @@ public class WebController {
     //TaskPage Controller
     @GetMapping("/task/{id}")
     String task(Model model, @PathVariable Long id) {
-        model.addAttribute("task",taskRepo.findById(id).get());
+        model.addAttribute("task", taskRepo.findById(id).get());
         model.addAttribute("accountid", accService.getAccountId());
         System.out.println(accService.getAccountId());
 
@@ -65,12 +64,6 @@ public class WebController {
         Task task = taskRepo.findById(id).get();
         task.setBookedId(accountId);
         taskRepo.save(task);
-
-
-        System.out.println(accountId);
-        System.out.println(taskRepo.findById(id).get().getBookedId());
-
-
         return "redirect:/task/" + id;
     }
 
@@ -88,6 +81,8 @@ public class WebController {
         model.addAttribute("account", accountRepo.findById(id).get().firstName);
         model.addAttribute("task", taskRepo.findAllByAccountId(id));
         model.addAttribute("bookedTask", taskRepo.findAllByBookedId(id));
+
+
         return "accountpage";
     }
 
@@ -97,11 +92,11 @@ public class WebController {
         return "createTask";
     }
 
-    @PostMapping ("/account/create")
-    String postCreateTask(Model model, @RequestParam String title, @RequestParam String description, @RequestParam int price, @RequestParam String image) {
+    @PostMapping("/account/create")
+    String postCreateTask(Model model, @RequestParam String title, @RequestParam String description, @RequestParam int price, @RequestParam String image, @RequestParam String cities) {
         Long id = accService.getAccountId();
-        accService.createTaskModelGen(model,title,description,price,image,id);
-        Task task = new Task(title, accountRepo.findById(id).get().address, image, price, description, id);
+        accService.createTaskModelGen(model, title, description, price, image, id);
+        Task task = new Task(title, accountRepo.findById(id).get().address, image, price, description, id, cities);
         taskService.addTask(task);
         return "redirect:/";
     }
@@ -117,14 +112,15 @@ public class WebController {
 
     //Registration Controllers
     @GetMapping("/register")
-    String register(){
+    String register() {
         return "register";
     }
 
     @PostMapping("/register")
-    String registerUser(@RequestParam String firstname, @RequestParam String lastname,@RequestParam String username, @RequestParam String password, @RequestParam String passwordControll, @RequestParam String email, @RequestParam String phonenumber, @RequestParam String address, @RequestParam String cardnumber){
-        return accService.addUser(firstname,lastname,username,password,passwordControll,email,phonenumber,address,cardnumber);
+    String registerUser(@RequestParam String firstname, @RequestParam String lastname, @RequestParam String username, @RequestParam String password, @RequestParam String passwordControll, @RequestParam String email, @RequestParam String phonenumber, @RequestParam String address, @RequestParam String cardnumber) {
+        return accService.addUser(firstname, lastname, username, password, passwordControll, email, phonenumber, address, cardnumber);
     }
+
     @GetMapping("/account/{id}/delete")
     String deleteTask(@PathVariable Long id) {
         taskRepo.deleteById(id);
@@ -136,4 +132,25 @@ public class WebController {
     String faq() {
         return "faq";
     }
+
+
+// Delince or accept offer
+
+    @PostMapping("/accept")
+    String acceptOffer(@RequestParam Long id2) {
+        Task task = taskRepo.findById(id2).get();
+        task.setAccepted(true);
+        taskRepo.save(task);
+        return "redirect:/account";
+
+    }
+
+    @PostMapping("/decline")
+    String declineOffer(@RequestParam Long id){
+        Task task = taskRepo.findById(id).get();
+        task.setBookedId(null);
+        taskRepo.save(task);
+        return "redirect:/account";
+    }
 }
+
