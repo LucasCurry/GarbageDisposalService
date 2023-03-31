@@ -22,17 +22,20 @@ public class Task {
     Long bookedId;
     //@Temporal(TemporalType.TIMESTAMP)
     LocalDateTime createdAt;
+    boolean isAccepted;
 
     public Task() {
     }
 
-    public Task(String title, String address, String image, int price, String description, Long accountId, LocalDateTime createdAt) {
+    public Task(String title, String address, String image, int price, String description, Long accountId, String city, LocalDateTime createdAt) {
         this.title = title;
         this.address = address;
         this.image = image;
         this.price = price;
         this.description = description;
         this.accountId = accountId;
+        this.city = city;
+        this.isAccepted = false;
         this.createdAt = createdAt;
     }
     public LocalDateTime getCreatedAt() {
@@ -98,6 +101,15 @@ public class Task {
         this.bookedId = bookedId;
     }
 
+
+    public Long getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(Long accountId) {
+        this.accountId = accountId;
+    }
+
     public String getCity() {
         return city;
     }
@@ -106,12 +118,12 @@ public class Task {
         this.city = city;
     }
 
-    public Long getAccountId() {
-        return accountId;
+    public boolean isAccepted() {
+        return isAccepted;
     }
 
-    public void setAccountId(Long accountId) {
-        this.accountId = accountId;
+    public void setAccepted(boolean accepted) {
+        isAccepted = accepted;
     }
 
     @Override
