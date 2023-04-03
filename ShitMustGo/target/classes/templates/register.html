@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Shi mu Go Sign Up</title>
-    <link rel="icon" type="image/x-icon" href="/images/garbage-truck.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" type="image/x-icon" href="/images/garbage-truck.png">
 </head>
+<title>Shi mu Go Sign Up</title>
 <body>
 <nav><h1><a href="/">ShitMustGo</a></h1>
 
@@ -16,23 +17,54 @@
         <li> <a href="/">Home</a> </li>
         <li> <a href="/login">Login/Signup</a> </li>
         <li> <a href="/contact">Contact</a> </li>
-        <li> <a href="/customerservice">Customer Service</a></li>
+        <li> <a href="/faq">FAQ</a> </li>
         <li><a href="/account">Account</a></li>
     </ul>
 </nav>
-      <!-- Registration Form-->
 <form action="/register" method="post">
-  firstname  <input type="text" name="firstname">
-  lastname<input type="text" name="lastname">
-  email<input type="email" name="email">
-  username<input type="text" name="username">
-  password<input type="password" name="password">
-  password 2 <input type="password" name="passwordControll">
-  phonenumber<input type="text" name="phonenumber">
-  address<input type="text" name="address">
-  cardnumber<input type="text" name="cardnumber">
-  <input type="submit">
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="First name">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Last name">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Email">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Username">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Password">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Repeat Password">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Phone number">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Address">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Card number">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-primary">Register Account</button>
+        </div>
+    </div>
 </form>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 </body>
 </html>
