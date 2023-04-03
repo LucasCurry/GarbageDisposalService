@@ -16,28 +16,7 @@
 
 <div>
 </div>
-    <!-- Nav bar -->
-    <nav><h1><a href="/">ShitMustGo</a></h1>
-
-<ul class="navbar">
-    <li> <a href="/">Home</a> </li>
-    <li sec:authorize="!hasRole('ADMIN')"> <a href="/login">Sign in/Sign up</a> </li>
-    <li> <a href="/contact">Contact</a> </li>
-    <li> <a href="/faq">FAQ</a> </li>
-    <li sec:authorize="hasRole('ADMIN')"><a href="/account">Account</a></li>
-   <!-- <li sec:authorize="hasRole('ADMIN')"><a href="/delete">Delete Account</a></li> -->
-    <li sec:authorize="hasRole('ADMIN')">
-        <form th:action="@{/logout}" method="POST" >
-        <input type="submit" value="Logout">
-    </form>
-    </li>
-</ul>
-
-
-
-
-
-   </nav>
+<nav th:replace="fragments::navbar"></nav>
 <div class="aboutus-div">
     <article class="aboutus">
         <h3>Shit-Must-Go finns för dig som inte vill eller kan åka till ÅVC. Genom att samarbeta så kan vi hjälpas åt!</h3>

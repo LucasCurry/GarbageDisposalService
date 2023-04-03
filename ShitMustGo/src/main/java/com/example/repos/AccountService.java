@@ -55,5 +55,10 @@ public class AccountService {
         model.addAttribute("accountId", id);
     }
 
+    public String getUsername(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentUsername = authentication.getName();
+        return currentUsername;
+    }
 
 }

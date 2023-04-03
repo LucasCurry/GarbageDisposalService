@@ -180,8 +180,10 @@ public class WebController {
         return "redirect:/account";
     }
 
-    @GetMapping("/hello")
-    String chatt() {
+    @GetMapping("/task/{id}/chat")
+    String chatt(Model model, @PathVariable Long id) {
+        model.addAttribute("task", taskRepo.findById(id).get());
+        model.addAttribute("accountid", accService.getAccountId());
         return "hello";
     }
 }
