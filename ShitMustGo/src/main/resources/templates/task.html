@@ -24,7 +24,7 @@
                 </div>
                     <form th:action="@{'/task/' + ${task.id}}" method="post">
                         <input th:if="${task.accountId != accountid}" sec:authorize="isAuthenticated()" type="submit" th:class="book" value="BOKA">
-                        <a th:href="'/task/' + ${task.id} + '/chat'"><button class="book">CHATT</button></a>
+                        <button class="book"><a th:href="'/task/' + ${task.id} + '/chat'">CHATT</a></button>
                     </form>
                 </div>
         </div>
