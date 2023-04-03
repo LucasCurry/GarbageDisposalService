@@ -318,3 +318,21 @@ border-color: #5c715e;
 a:hover {
 color: #CCCCCC;
 }
+
+.chat-task-div {
+    display: flex;
+    height: 200px;
+}
+
+.chat-img {
+    margin-top: 20px;
+    width: 150px;
+    height: 150px;
+}
+
+.chat-task-text {
+    margin-left: 20px;
+    margin-top: 90px;
+    font-weight: bold;
+
+}
