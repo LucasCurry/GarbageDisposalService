@@ -34,21 +34,33 @@ public class WebController {
     @Autowired
     TaskService taskService;
 
+    List<Task> tasks;
+
 
     //Frontpage Controller + Print tasks
+
     @GetMapping("/")
-    String home(Model model) {
-        Long id = accService.getAccountId();
-        /* model.addAttribute("task", taskRepo.findAll());*/
-        model.addAttribute("task", taskRepo.findAllByBookedId(null));
+    String homeRedirect(){
+        return "redirect:/home";
+    }
+    @GetMapping("/home")
+    String home(Model model, @RequestParam(required = false, defaultValue = "0") int page) {
+        tasks = taskService.getPage(page, 9);
+        double numOfPages = taskService.numberOfPages(9);
+        model.addAttribute("task", tasks);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("numOfPages", numOfPages);
         return "home";
     }
 
     //Sorting Tasks
-    @PostMapping("/")
-    String sortCity(Model model, @RequestParam(required = false, defaultValue = "") String cities, @RequestParam(required = false, defaultValue = "") String sorting) {
-        List<Task> tasks = taskService.sortList(cities, sorting);
+    @PostMapping("/home")
+    String sortCity(Model model, @RequestParam(required = false, defaultValue = "") String cities, @RequestParam(required = false, defaultValue = "") String sorting, @RequestParam(required = false, defaultValue = "0") int page) {
+        tasks = taskService.sortList(cities, sorting, page);
+        double numOfPages = taskService.numberOfPages(9);
         model.addAttribute("task", tasks);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("numOfPages", numOfPages);
         return "home";
     }
 
