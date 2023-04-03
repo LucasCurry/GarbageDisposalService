@@ -186,4 +186,10 @@ public class WebController {
         model.addAttribute("accountid", accService.getAccountId());
         return "hello";
     }
+
+    @GetMapping("/task/{id}/payment")
+    String payment(Model model, @PathVariable Long id) {
+        model.addAttribute("task", taskRepo.findById(id).get());
+        return "payment";
+    }
 }
