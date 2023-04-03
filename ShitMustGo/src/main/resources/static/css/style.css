@@ -298,3 +298,23 @@ padding-top: 50px;
 padding: 100px;
 color : #5c715e;
 }
+
+/* Bootstrap alterations */
+
+.col {
+display: flex;
+justify-content: center;
+}
+
+.row {
+margin: 20px;
+}
+
+.btn-primary {
+background-color: #5c715e !important;
+border-color: #5c715e;
+}
+
+a:hover {
+color: #CCCCCC;
+}
