@@ -34,7 +34,7 @@ public class SecurityConfig {
 
         http
                 .authorizeHttpRequests()
-                .requestMatchers("/","/login","/register", "/css/**", "/images/**", "/task/**", "/contact/**", "/customerservice/**", "/faq/**").permitAll()
+                .requestMatchers("/","/login","/register", "/css/**", "/images/**", "/task/**", "/contact/**", "/customerservice/**", "/faq/**","/hello/**","/webjars/**","/gs-guide-websocket/**").permitAll()
                 .anyRequest().authenticated();
         http
                 .formLogin()

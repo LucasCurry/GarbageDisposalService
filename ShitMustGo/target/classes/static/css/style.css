@@ -155,7 +155,9 @@ text-align:center;
 }
 
 .aboutus {
+    padding-top: 50px;
     display: flex;
+    height: 700px;
 }
 
 .aboutus-div {
@@ -233,6 +235,7 @@ margin-top: 50px;
   margin-top: 30px;
   margin-bottom: 15px;
 }
+
 /*#4CAF50;*/
 .loginButton:hover {
 background-color: #ddeedf;
@@ -276,16 +279,20 @@ margin-bottom: 0;
 
 }
 
-.home{
-display: flex;
-flex-direction: column;
-}
+.home {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    }
+
 h3{
 font-style: italic;
 Padding : 5px;
 color:#5c715e;
 }
-P{
+
+P {
 font-style: italic;
 padding-top: 50px;
 padding: 100px;
