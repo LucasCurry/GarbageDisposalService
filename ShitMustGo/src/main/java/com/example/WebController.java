@@ -167,4 +167,9 @@ public class WebController {
         taskRepo.save(task);
         return "redirect:/account";
     }
+
+    @GetMapping("/hello")
+    String chatt() {
+        return "hello";
+    }
 }
