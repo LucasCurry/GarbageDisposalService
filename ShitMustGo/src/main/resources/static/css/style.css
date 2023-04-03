@@ -379,3 +379,8 @@ color: #CCCCCC;
 .list-group {
     padding-top: 20px;
 }
+
+.createTaskButtons {
+display: flex;
+justify-content: center;
+}
