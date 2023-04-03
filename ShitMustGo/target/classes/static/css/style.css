@@ -381,14 +381,7 @@ color: #CCCCCC;
     padding-top: 20px;
 }
 
-.btn btn-default {
-    background-color: #5c715e;
-    color: white;
-    border: none;
-    border-radius: 7px;
-    padding: 10px;
-    font-size: 18px;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    margin: 7px;
+.createTaskButtons {
+display: flex;
+justify-content: center;
 }

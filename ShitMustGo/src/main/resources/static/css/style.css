@@ -60,6 +60,7 @@ padding-bottom: 25px;
 color: #000000;
 width: 25%;
 background-color: #ddeedf;
+border: solid 1px;
 border-radius: 15px;
 margin-bottom: 20px;
 margin-top: 20px;
@@ -381,3 +382,8 @@ color: #CCCCCC;
     padding-top: 20px;
 }
 
+
+.createTaskButtons {
+display: flex;
+justify-content: center;
+}
