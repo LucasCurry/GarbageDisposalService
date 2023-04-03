@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,16 +11,7 @@
 </head>
 <title>Shi mu Go Sign Up</title>
 <body>
-<nav><h1><a href="/">ShitMustGo</a></h1>
-
-    <ul class="navbar">
-        <li> <a href="/">Home</a> </li>
-        <li> <a href="/login">Login/Signup</a> </li>
-        <li> <a href="/contact">Contact</a> </li>
-        <li> <a href="/faq">FAQ</a> </li>
-        <li><a href="/account">Account</a></li>
-    </ul>
-</nav>
+<nav th:replace="fragments::navbar"></nav>
 <form action="/register" method="post">
     <div class="row">
         <div class="col">
