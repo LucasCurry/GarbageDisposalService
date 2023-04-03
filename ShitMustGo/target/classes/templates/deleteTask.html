@@ -9,6 +9,7 @@
     <link rel="icon" type="image/x-icon" href="/images/garbage-truck.png">
 </head>
 <body>
+<nav th:replace="fragments::navbar"></nav>
     <form th:class="delete-task" action="/account/deletetask" method="post">
       <input type="submit" value="Delete">
     </form>

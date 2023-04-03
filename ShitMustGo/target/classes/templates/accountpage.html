@@ -8,23 +8,8 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" type="image/x-icon" href="/images/garbage-truck.png">
 </head>
-<body>
-<nav><h1><a href="/">ShitMustGo</a></h1>
-
-    <ul class="navbar">
-        <li> <a href="/">Home</a> </li>
-        <li sec:authorize="!isAuthenticated()"> <a href="/login">Sign in/Sign up</a> </li>
-        <li> <a href="/contact">Contact</a> </li>
-        <li> <a href="/faq">FAQ</a> </li>
-        <li sec:authorize="isAuthenticated()"><a href="/account">Account</a></li>
-        <li sec:authorize="hasRole('ADMIN')">
-            <form th:action="@{/logout}" method="POST" >
-                <input type="submit" value="Logout">
-            </form>
-        </li>
-    </ul>
-</nav>
-
+<body>y
+<nav th:replace="fragments::navbar"></nav>
 <div class="accountWel">
 
     <h2 th:text="'Välkommen ' + ${account}">Välkommen</h2>
@@ -60,7 +45,7 @@
 
     <article class="task" th:each="task : ${bookedTask}">
         <p th:if="${task.isAccepted}">Uppdrag är Accepterat</p>
-        <p th:if="${task.isAccepted}">Går till uppdrag för mer info</p>
+        <a th:href="localhost:8081"><p th:if="${task.isAccepted}">Går till uppdrag för mer info</p></a>
         <tr>
             <th><a th:href="'/task/' + ${task.id}" th:text="${task.title}"></a></th>
             <th th:text="${task.address}"></th>
