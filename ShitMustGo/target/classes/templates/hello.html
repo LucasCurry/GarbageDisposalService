@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
   <title>Hello WebSocket</title>
   <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -10,33 +10,25 @@
 <noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
   enabled. Please enable
   Javascript and reload this page!</h2></noscript>
-<div th:class="chat-task-div">
-  <img th:class="chat-img" th:src="${task.image}" alt=""/>
-  <div th:class="chat-task-text">
-    <li th:class="name" th:text="${task.title}"></li>
-    <li th:class="name" th:text="'Pris: ' + ${task.price} + ' kr'"></li>
-  </div>
-</div>
-
 <div id="main-content" class="container">
   <div class="row">
     <div class="col-md-6">
       <form class="form-inline">
         <div class="form-group">
-          <label for="connect">Anslut till chatten:</label>
-          <button id="connect" class="btn btn-default" type="submit">Anslut</button>
-          <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Koppla bort
+          <label for="connect">WebSocket connection:</label>
+          <button id="connect" class="btn btn-default" type="submit">Connect</button>
+          <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect
           </button>
         </div>
       </form>
     </div>
     <div class="col-md-6">
-      <form class="form-inline" onsubmit="this.reset();">
+      <form class="form-inline">
         <div class="form-group">
-          <label for="name">Meddelande</label>
-          <input type="text" id="name" class="form-control" placeholder="Ditt meddelande">
+          <label for="name">What is your name?</label>
+          <input type="text" id="name" class="form-control" placeholder="Your name here...">
         </div>
-        <button id="send" class="btn btn-default" type="submit">Skicka</button>
+        <button id="send" class="btn btn-default" type="submit">Send</button>
       </form>
     </div>
   </div>
@@ -45,7 +37,7 @@
       <table id="conversation" class="table table-striped">
         <thead>
         <tr>
-          <th>Meddelanden</th>
+          <th>Greetings</th>
         </tr>
         </thead>
         <tbody id="greetings">

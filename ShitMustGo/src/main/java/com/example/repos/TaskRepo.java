@@ -15,8 +15,6 @@ public interface TaskRepo extends CrudRepository<Task,Long> {
 
     List<Task> findAllByBookedId(Long Id);
 
-
-
     List<Task> findAllByOrderByPriceDesc();
 
     List<Task> findAllByOrderByPrice();
@@ -28,5 +26,6 @@ public interface TaskRepo extends CrudRepository<Task,Long> {
     List<Task> findAllByOrderByCreatedAtDesc();
 
     List<Task> findByCityOrderByCreatedAtDesc(String city);
+
 
 }
