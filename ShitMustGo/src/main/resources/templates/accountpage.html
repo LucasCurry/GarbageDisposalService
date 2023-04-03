@@ -60,7 +60,7 @@
 
     <article class="task" th:each="task : ${bookedTask}">
         <p th:if="${task.isAccepted}">Uppdrag är Accepterat</p>
-        <a th:href="localhost:8081"><p th:if="${task.isAccepted}">Går till uppdrag för mer info</p></a>
+        <p th:if="${task.isAccepted}">Går till uppdrag för mer info</p>
         <tr>
             <th><a th:href="'/task/' + ${task.id}" th:text="${task.title}"></a></th>
             <th th:text="${task.address}"></th>
