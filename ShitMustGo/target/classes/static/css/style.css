@@ -60,6 +60,7 @@ padding-bottom: 25px;
 color: #000000;
 width: 25%;
 background-color: #ddeedf;
+border: solid 1px;
 border-radius: 15px;
 margin-bottom: 20px;
 margin-top: 20px;
@@ -371,6 +372,18 @@ color: #CCCCCC;
     margin: 7px;
 }
 
+.ctButton{
+    background-color: #5c715e;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 10px;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    margin: 7px;
+}
+
 .task-title {
     font-size: 18px;
     letter-spacing: 0.5px;
@@ -379,9 +392,4 @@ color: #CCCCCC;
 
 .list-group {
     padding-top: 20px;
-}
-
-.createTaskButtons {
-display: flex;
-justify-content: center;
 }
