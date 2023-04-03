@@ -37,12 +37,16 @@
         <a href="#">Link 3</a>
     </div>
 </div> -->
+<div class="taskH3">
+    <h3>Recent Tasks</h3>
+</div>
+
     <div class="filter">
         <a sec:authorize="isAuthenticated()" href="/account/create"><button>Create Task</button></a>
 
-    <form action="/home" method="post">
+    <form action="/home" method="post" class="book">
     <label for="cities">
-        <select name="cities" id="cities">
+        <select name="cities" id="cities" class="book">
             <option value="" disabled selected>Choose city...</option>
             <option value="Stockholm">Stockholm</option>
             <option value="Göteborg">Göteborg</option>
@@ -58,24 +62,24 @@
             <option value="Recent">Recent</option>
         </select>
 
-        <input type="submit" value="Apply filter">
+        <input type="submit" value="Apply filter" class="book">
 
     </label>
     </form>
     </div>
 
     <!-- Show list of tasks -->
-<div class="taskH3">
-    <h3>Recent Tasks</h3>
-</div>
+
 
 
     <div class="tasks">
     <article th:each="task : ${task}" class="task">
 
         <tr>
+            <div class="image-background">
             <a th:href="'/task/' + ${task.id}"><img th:class="img" th:src="${task.image}" alt=""></a>
-            <th><a th:href="'/task/' + ${task.id}" th:text="${task.title}"></a></th><br>
+            </div>
+            <th><a th:href="'/task/' + ${task.id}" th:text="${task.title}" class="task-title"></a></th><br>
             Stad: <th th:text="${task.city}"></th><br>
             Adress: <th th:text="${task.address}"></th><br>
             Pris: <th th:text="${task.price}+' kr'"></th><br>
@@ -104,7 +108,7 @@
             <p> Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. It usually begins with:</p>
         </div>
     </div>
-    <img src="/images/SHI-MU-GO.png" class="article-image">
+    <img src="https://www.kramfors.se/images/18.3d650ba16999f2e91a30ffe/1553869054739/k%C3%A4llsortering.png" class="article-image">
 </article>
 
 
