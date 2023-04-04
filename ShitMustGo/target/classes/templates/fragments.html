@@ -15,7 +15,7 @@
         <li sec:authorize="isAuthenticated()"><a href="/account">Account</a></li>
         <li sec:authorize="hasRole('ADMIN')">
             <form th:action="@{/logout}" method="POST" >
-                <input type="submit" value="Logout">
+                <input type="submit" class="book" value="Logout">
             </form>
         </li>
     </ul>
