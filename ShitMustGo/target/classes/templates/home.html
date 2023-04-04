@@ -83,9 +83,9 @@
 <div class="pageView">
     <button th:if="${currentPage > 0}" class="book"><a th:href="'/home?page=' + ${currentPage-1}" th:text="Previous" ></a></button>
 
-    <label th:each=" i : ${#numbers.sequence(0 , numOfPages-1)}">
-        <p><a th:if="${i != currentPage}" th:href="'/home?page=' + ${i}" th:text="${i+1 + ' '}"></a></p>
-        <p th:if="${i == currentPage}" th:text="${i+1 + ' '}"></p>
+    <label class="pageLab" th:each=" i : ${#numbers.sequence(0 , numOfPages-1)}">
+        <p class="page"><a th:if="${i != currentPage}" th:href="'/home?page=' + ${i}" th:text="${i+1 + ' '}"></a></p>
+        <p class="pageChosen" th:if="${i == currentPage}" th:text="${i+1 + ' '}"></p>
     </label>
     <button th:if="${currentPage < numOfPages-1}" class="book"><a th:href="'/home?page=' + ${currentPage+1}" th:text="Next"></a></button>
 </div>

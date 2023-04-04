@@ -176,7 +176,6 @@ text-align:center;
 .aboutus {
     padding-top: 50px;
     display: flex;
-    height: 700px;
 }
 
 .aboutus-div {
@@ -369,6 +368,9 @@ color: #CCCCCC;
     font-size: 35px;
     font-weight: bold;
 }
+.book a{
+color: white;
+}
 
 .book {
     background-color: #5c715e;
@@ -406,4 +408,22 @@ color: #CCCCCC;
 
 .list-group {
     padding-top: 20px;
+}
+
+.page{
+padding: 5px;
+}
+
+.pageChosen{
+padding: 4px;
+background-color: #5c715e;
+border-radius: 15px;
+}
+
+.pageChosen p{
+color: white;
+}
+
+.page a{
+color: black;
 }
