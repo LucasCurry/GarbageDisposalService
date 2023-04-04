@@ -123,9 +123,9 @@ img {
 }
 
 .task-image {
-    padding-top: 50px;
-    height: 700px;
-    width: 600px;
+    height: 300px;
+    width: 300px;
+
 }
 
 
@@ -133,7 +133,18 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    padding-top: 25px;
+    background-color: #5c715e;
+    border-radius: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
 
+}
+.taskInfo{
+padding: 0;
+color: white;
 }
 
 h1 {
@@ -304,7 +315,6 @@ P {
 font-style: italic;
 padding-top: 50px;
 padding: 100px;
-color : #5c715e;
 }
 
 /* Bootstrap alterations */
@@ -346,7 +356,7 @@ color: #CCCCCC;
 }
 
 .name {
-    font-size: 60px;
+    font-size: 45px;
     font-weight: bold;
 }
 

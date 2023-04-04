@@ -18,9 +18,9 @@
         <div th:class="task-div">
             <img th:class="task-image" th:src="${task.image}" alt=""/>
             <div>
-                <p th:class="name" th:text="${task.title}"></p>
-                <p th:class="desc" th:text="${task.description}"></p>
-                <p th:class="price" th:text="'Betalning: ' + ${task.price} + ' kr'"></p>
+                <p class="name taskInfo" th:text="${task.title}"></p>
+                <p class="desc taskInfo" th:text="${task.description}"></p>
+                <p class="price taskInfo" th:text="'Betalning: ' + ${task.price} + ' kr'"></p>
                 </div>
                     <form th:action="@{'/task/' + ${task.id}}" method="post">
                         <input th:if="${task.accountId != accountid}" sec:authorize="isAuthenticated()" type="submit" th:class="book" value="BOKA">
