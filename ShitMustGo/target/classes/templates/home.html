@@ -11,7 +11,7 @@
 
 
 </head>
-    <title>Shi Mu Go</title>
+    <title>ShitMustGo</title>
 <body>
 
 <div>
@@ -32,16 +32,16 @@
     </div>
 </div> -->
 <div class="taskH3">
-    <h3>Recent Tasks</h3>
+    <h3>Uppdrag</h3>
 </div>
 
     <div class="filter">
-        <a sec:authorize="isAuthenticated()" href="/account/create"><button class="book">Create Task</button></a>
+        <a sec:authorize="isAuthenticated()" href="/account/create"><button class="book">Skapa Uppdrag</button></a>
 
     <form action="/home" method="post" class="book">
     <label for="cities">
         <select name="cities" id="cities" class="book">
-            <option value="" disabled selected>Choose city...</option>
+            <option value="" disabled selected>Välj stad...</option>
             <option value="Stockholm">Stockholm</option>
             <option value="Göteborg">Göteborg</option>
             <option value="Malmö">Malmö</option>
@@ -50,13 +50,13 @@
 
     <label for="Sorting">
         <select name="sorting" id="Sorting" class="book">
-            <option value="" disabled selected>Sort by</option>
-            <option value="HighPrice">Price descending</option>
-            <option value="LowPrice">Price ascending</option>
-            <option value="Recent">Recent</option>
+            <option value="" disabled selected>Sortera efter...</option>
+            <option value="HighPrice">Högsta pris</option>
+            <option value="LowPrice">Lägsta pris</option>
+            <option value="Recent">Senaste tillagda</option>
         </select>
 
-        <input type="submit" value="Apply filter" class="book">
+        <input type="submit" value="Filtrera" class="book">
 
     </label>
     </form>
@@ -81,13 +81,13 @@
     </div>
 
 <div class="pageView">
-    <button th:if="${currentPage > 0}" class="book"><a th:href="'/home?page=' + ${currentPage-1}" th:text="Previous" ></a></button>
+    <button th:if="${currentPage > 0}" class="book"><a th:href="'/home?page=' + ${currentPage-1}" th:text="Föregående" ></a></button>
 
     <label class="pageLab" th:each=" i : ${#numbers.sequence(0 , numOfPages-1)}">
         <p class="page"><a th:if="${i != currentPage}" th:href="'/home?page=' + ${i}" th:text="${i+1 + ' '}"></a></p>
         <p class="pageChosen" th:if="${i == currentPage}" th:text="${i+1 + ' '}"></p>
     </label>
-    <button th:if="${currentPage < numOfPages-1}" class="book"><a th:href="'/home?page=' + ${currentPage+1}" th:text="Next"></a></button>
+    <button th:if="${currentPage < numOfPages-1}" class="book"><a th:href="'/home?page=' + ${currentPage+1}" th:text="Nästa"></a></button>
 </div>
 
 <article class="aboutus">

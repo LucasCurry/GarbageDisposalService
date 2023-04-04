@@ -82,7 +82,7 @@ public class WebController {
         task.setBookedId(accountId);
         taskRepo.save(task);
 
-        return "redirect:/task/" + id;
+        return "redirect:/account";
     }
 
 
