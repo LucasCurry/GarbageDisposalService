@@ -12,24 +12,34 @@
 <title>Shi mu Go Sign Up</title>
 <body>
 <nav th:replace="fragments::navbar"></nav>
-<form action="/register" method="post">
+
+<div th:if="${FailedSignup}" class="alert alert-danger" role="alert" text-center>
+    [[${FailedSignup}]]
+</div>
+<form action="/register" method="post" th:object="${account}">
     <div class="row">
         <div class="col">
-            <input type="text" class="form-control" placeholder="Förnamn" name="firstname">
+            <input type="text" class="form-control" placeholder="Förnamn" th:field="*{firstName}">
+            <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p>
         </div>
         <div class="col">
-            <input type="text" class="form-control" placeholder="Efternamn" name="lastname">
+            <input type="text" class="form-control" placeholder="Efternamn" th:field="*{lastName}">
+            <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></p>
         </div>
         <div class="col">
-            <input type="email" class="form-control" placeholder="Email" name="email">
+            <input type="email" class="form-control" placeholder="Email" th:field="*{email}">
+            <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <input type="text" class="form-control" placeholder="Användarnamn" name="username">
+            <input type="text" class="form-control" placeholder="Användarnamn" th:field="*{username}">
+            <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+
         </div>
         <div class="col">
-            <input type="password" class="form-control" placeholder="Lösenord" name="password">
+            <input type="password" class="form-control" placeholder="Lösenord" th:field="*{password}">
+            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
         </div>
         <div class="col">
             <input type="password" class="form-control" placeholder="Upprepa Lösenord" name="passwordControll">
@@ -37,13 +47,16 @@
     </div>
     <div class="row">
         <div class="col">
-            <input type="text" class="form-control" placeholder="Telefonnummer" name="phonenumber">
+            <input type="text" class="form-control" placeholder="Telefonnummer" th:field="*{phoneNumber}">
+            <p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></p>
         </div>
         <div class="col">
-            <input type="text" class="form-control" placeholder="Adress" name="address">
+            <input type="text" class="form-control" placeholder="Adress" th:field="*{address}">
+            <p th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></p>
         </div>
         <div class="col">
-            <input type="text" class="form-control" placeholder="Kortnummer" name="cardnumber">
+            <input type="text" class="form-control" placeholder="Kortnummer" th:field="*{cardnumber}">
+            <p th:if="${#fields.hasErrors('cardnumber')}" th:errors="*{cardnumber}"></p>
         </div>
     </div>
     <div class="row">

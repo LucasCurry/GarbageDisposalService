@@ -4,6 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 
@@ -15,13 +18,24 @@ public class Account {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     Long id;
+
+    @NotEmpty(message = "Fältet får ej vara tomt")
     String firstName;
+    @NotEmpty(message = "Fältet får ej vara tomt")
     String lastName;
+    @NotEmpty(message = "Fältet får ej vara tomt")
     String username;
+    @Size(min= 3, message="Lösenord måste bestå av minst 3 tecken.")
+    @NotEmpty(message = "Fältet får ej vara tomt")
     String password;
+    @NotEmpty(message = "Fältet får ej vara tomt")
     String phoneNumber;
+    @Email
+    @NotEmpty(message = "Fältet får ej vara tomt")
     String email;
+    @NotEmpty(message = "Fältet får ej vara tomt")
     String address;
+    @NotEmpty(message = "Fältet får ej vara tomt")
     String cardnumber;
 
 
