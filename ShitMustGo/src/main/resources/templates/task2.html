@@ -64,6 +64,9 @@
              <div th:if="${accountid != task.bookedId}">
               <input th:if="${task.accountId != accountid}" type="submit" value="BOKA" class="btn btn-outline-dark flex-shrink-0">
              </div>
+              <div th:if="${task.bookedId != null}">
+                  <button class="btn btn-outline-dark flex-shrink-0"><a th:href="'/task/' + ${task.id} + '/chat'">CHATT</a></button>
+              </div>
 
 
 
