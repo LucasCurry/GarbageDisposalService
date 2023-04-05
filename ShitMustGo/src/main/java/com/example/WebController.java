@@ -5,20 +5,18 @@ import com.example.repos.AccountService;
 import com.example.repos.TaskRepo;
 import com.example.repos.TaskService;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.security.core.Authentication;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 
 @Controller
 public class WebController {
@@ -128,11 +126,12 @@ public class WebController {
 
     //Registration Controllers
     @GetMapping("/register")
-    String register() {
+    String register(Model model) {
+        model.addAttribute("account", new Account());
         return "register";
     }
 
-    @PostMapping("/register")
+   /* @PostMapping("/register")
     String registerUser(@RequestParam String firstname, @RequestParam String lastname, @RequestParam String username, @RequestParam String password, @RequestParam String passwordControll, @RequestParam String email, @RequestParam String phonenumber, @RequestParam String address, @RequestParam String cardnumber) {
         if (password.equals(passwordControll)) {
             Account account = new Account(firstname, lastname, username, passEnco.encode(password), phonenumber, email, address, cardnumber);
@@ -141,6 +140,10 @@ public class WebController {
         return "register";
 
 
+    }*/
+    @PostMapping("/register")
+    String registerUser(@Valid Account account, BindingResult bindingResult, @RequestParam String passwordControll, RedirectAttributes ra) {
+            return accService.addUser(account, bindingResult, passwordControll, ra);
     }
 
     @GetMapping("/account/{id}/delete")
