@@ -1,12 +1,18 @@
 package com.example.repos;
 
 import com.example.Account;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
+
+import javax.naming.Binding;
 
 @Service
 public class AccountService {
@@ -16,23 +22,37 @@ public class AccountService {
     @Autowired
     PasswordEncoder passEnco;
 
-    public String addUser(String firstname, String lastname, String username, String password, String passwordControll, String email, String phonenumber, String address, String cardnumber){
-        if (accRepo.findByUsername(username) == null){
-            if (accRepo.findByEmail(email) == null){
-                if (password.equals(passwordControll)){
-                    Account account = new Account(firstname, lastname,username,passEnco.encode(password), phonenumber, email, address, cardnumber);
+   public String addUser(Account account){
+        if (accRepo.findByUsername(account.getUsername()) == null){
+            if (accRepo.findByEmail(account.getEmail()) == null){
+                    System.out.println(account);
                     accRepo.save(account);
                     return "redirect:/login";
-                }
             }
         }
         return "register";
     }
+
+    public String addUser(@Valid Account account, BindingResult bindingResult, String passwordControll, RedirectAttributes ra){
+
+        if(!account.getPassword().equals(passwordControll)){
+            bindingResult.rejectValue("password", "error", "Inte samma lösenord.");
+            ra.addFlashAttribute("FailedSignup", "Inte samma lösenord.");
+            return "register";
+        }
+        if (bindingResult.hasErrors()){
+            ra.addFlashAttribute("FailedSignup", "Något blev fel, försök igen");
+            return "register";
+        }
+        account.setPassword(passEnco.encode(account.getPassword()));
+        accRepo.save(account);
+        return "login";
+    }
+
     public String deleteUser(Account account) {
         accRepo.delete(account);
         return "redirect:/";
     }
-
 
     public Long getAccountId(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -57,8 +77,7 @@ public class AccountService {
 
     public String getUsername(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentUsername = authentication.getName();
-        return currentUsername;
+        return authentication.getName(); // get current username
     }
 
 }
