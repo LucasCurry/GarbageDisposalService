@@ -25,6 +25,7 @@ public class Account {
     String cardnumber;
 
 
+
     public Account() {
     }
 
@@ -36,6 +37,31 @@ public class Account {
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.address = adress;
+        this.cardnumber = cardnumber;
+    }
+
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCardnumber() {
+        return cardnumber;
+    }
+
+    public void setCardnumber(String cardnumber) {
         this.cardnumber = cardnumber;
     }
 
@@ -87,4 +113,18 @@ public class Account {
         this.username = username;
     }
 
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", cardnumber='" + cardnumber + '\'' +
+                '}';
+    }
 }

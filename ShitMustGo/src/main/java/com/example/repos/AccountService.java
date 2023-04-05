@@ -16,14 +16,12 @@ public class AccountService {
     @Autowired
     PasswordEncoder passEnco;
 
-    public String addUser(String firstname, String lastname, String username, String password, String passwordControll, String email, String phonenumber, String address, String cardnumber){
-        if (accRepo.findByUsername(username) == null){
-            if (accRepo.findByEmail(email) == null){
-                if (password.equals(passwordControll)){
-                    Account account = new Account(firstname, lastname,username,passEnco.encode(password), phonenumber, email, address, cardnumber);
+    public String addUser(Account account){
+        if (accRepo.findByUsername(account.getUsername()) == null){
+            if (accRepo.findByEmail(account.getEmail()) == null){
+                    System.out.println(account);
                     accRepo.save(account);
                     return "redirect:/login";
-                }
             }
         }
         return "register";
@@ -32,7 +30,6 @@ public class AccountService {
         accRepo.delete(account);
         return "redirect:/";
     }
-
 
     public Long getAccountId(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -57,8 +54,7 @@ public class AccountService {
 
     public String getUsername(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentUsername = authentication.getName();
-        return currentUsername;
+        return authentication.getName(); // get current username
     }
 
 }

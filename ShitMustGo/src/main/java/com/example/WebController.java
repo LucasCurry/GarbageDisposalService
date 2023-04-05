@@ -134,7 +134,13 @@ public class WebController {
 
     @PostMapping("/register")
     String registerUser(@RequestParam String firstname, @RequestParam String lastname, @RequestParam String username, @RequestParam String password, @RequestParam String passwordControll, @RequestParam String email, @RequestParam String phonenumber, @RequestParam String address, @RequestParam String cardnumber) {
-        return accService.addUser(firstname, lastname, username, password, passwordControll, email, phonenumber, address, cardnumber);
+        if (password.equals(passwordControll)) {
+            Account account = new Account(firstname, lastname, username, passEnco.encode(password), phonenumber, email, address, cardnumber);
+            return accService.addUser(account);
+        }
+        return "register";
+
+
     }
 
     @GetMapping("/account/{id}/delete")
