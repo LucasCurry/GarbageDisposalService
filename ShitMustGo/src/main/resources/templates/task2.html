@@ -67,6 +67,16 @@
               <div th:if="${task.bookedId != null}">
                   <button class="btn btn-outline-dark flex-shrink-0"><a th:href="'/task/' + ${task.id} + '/chat'">CHATT</a></button>
               </div>
+              <div th:if="${task.accountId == accountid}">
+                  <form th:if="${task.bookedId != null && !task.isAccepted}" action="/decline" method="post">
+                      <button th:value="${task.id}" class="btn btn-outline-dark flex-shrink-0" name="id2" type="submit" formaction="/accept">Acceptera</button>
+                      <button th:value="${task.id}" class="btn btn-outline-dark flex-shrink-0" name="id" type="submit">Neka</button>
+                  </form>
+                  <div th:if="${task.bookedId != null && task.isAccepted}">
+                      <button class="btn btn-outline-dark flex-shrink-0"><a th:href="'/task/' + ${task.id} + '/payment'">BETALA</a></button>
+                  </div>
+              </div>
+
 
 
 

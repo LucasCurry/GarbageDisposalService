@@ -191,7 +191,7 @@ public class WebController {
         Task task = taskRepo.findById(id2).get();
         task.setAccepted(true);
         taskRepo.save(task);
-        return "redirect:/account";
+        return "redirect:/task/" + id2;
 
     }
 
