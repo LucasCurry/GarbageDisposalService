@@ -10823,4 +10823,8 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+  .account-h2 {
+    position: flex;
+    align-items: center;
+  }
 }
