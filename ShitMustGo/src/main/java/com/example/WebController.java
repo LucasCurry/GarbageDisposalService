@@ -14,9 +14,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import java.time.LocalDateTime;
 import java.util.List;
+
 
 @Controller
 public class WebController {
@@ -35,8 +35,9 @@ public class WebController {
     List<Task> tasks;
 
 
-    //Frontpage Controller + Print tasks
 
+
+    //Frontpage Controller + Print tasks
     @GetMapping("/")
     String homeRedirect(){
         return "redirect:/home";
@@ -86,10 +87,32 @@ public class WebController {
 
     //Login Controllers
     @GetMapping("/login")
-    String login() {
+    String login(Model model) {
         return "login";
     }
 
+   /* @GetMapping("/login-error")
+    String loginError(HttpServletRequest request, Model model){
+        HttpSession session = request.getSession(false);
+        String errorMessage = null;
+        if(session != null){
+            AuthenticationException ex = (AuthenticationException) session.
+                    getAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
+            if(ex != null){
+                errorMessage = ex.getMessage();
+            }
+        }
+        model.addAttribute("errorMessage", errorMessage);
+        return "login";
+    }*/
+    @GetMapping("/login-error")
+    String loginError(Model model){
+        model.addAttribute("failedLogin", true);
+        return "login";
+    }
+
+
+    // Everything related to Account controller
     @GetMapping("/account")
     String accountpage(Model model) {
         Long id = accService.getAccountId();
@@ -124,6 +147,25 @@ public class WebController {
         return "redirect:/account";
     }
 
+    @GetMapping("/account/{id}/delete")
+    String deleteTask(@PathVariable Long id) {
+        taskRepo.deleteById(id);
+        return "redirect:/account";
+    }
+
+    @GetMapping("/account/{id}/deleteUser")
+    String deleteUser(@PathVariable Long id, Model model, HttpServletRequest request) {
+        model.addAttribute("accountId", accountRepo.findById(id).get().id);
+        accountRepo.deleteById(id);
+        try {
+            request.logout();
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        }
+        return "redirect:/";
+    }
+
+
     //Registration Controllers
     @GetMapping("/register")
     String register(Model model) {
@@ -146,24 +188,7 @@ public class WebController {
             return accService.addUser(account, bindingResult, passwordControll, ra);
     }
 
-    @GetMapping("/account/{id}/delete")
-    String deleteTask(@PathVariable Long id) {
-        taskRepo.deleteById(id);
-        return "redirect:/account";
-    }
-
-    @GetMapping("/account/{id}/deleteUser")
-    String deleteUser(@PathVariable Long id, Model model, HttpServletRequest request) {
-        model.addAttribute("accountId", accountRepo.findById(id).get().id);
-        accountRepo.deleteById(id);
-        try {
-            request.logout();
-        } catch (ServletException e) {
-            throw new RuntimeException(e);
-        }
-        return "redirect:/";
-    }
-
+// FAQ controller
     @GetMapping("/faq")
     String faq() {
         return "faq";
@@ -171,7 +196,6 @@ public class WebController {
 
 
 // Delince or accept offer
-
     @PostMapping("/accept")
     String acceptOffer(@RequestParam Long id2) {
         Task task = taskRepo.findById(id2).get();
@@ -180,7 +204,6 @@ public class WebController {
         return "redirect:/account";
 
     }
-
     @PostMapping("/decline")
     String declineOffer(@RequestParam Long id){
         Task task = taskRepo.findById(id).get();
@@ -189,13 +212,14 @@ public class WebController {
         return "redirect:/account";
     }
 
+    // chat controller
     @GetMapping("/task/{id}/chat")
     String chatt(Model model, @PathVariable Long id) {
         model.addAttribute("task", taskRepo.findById(id).get());
         model.addAttribute("accountid", accService.getAccountId());
         return "hello";
     }
-
+    // payment controller
     @GetMapping("/task/{id}/payment")
     String payment(Model model, @PathVariable Long id) {
         model.addAttribute("task", taskRepo.findById(id).get());

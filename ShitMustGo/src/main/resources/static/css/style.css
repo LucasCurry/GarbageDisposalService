@@ -425,3 +425,10 @@ color: white;
 .page a{
 color: black;
 }
+
+.errormessage{
+background-color: white;
+color: red;
+border-radius: 15px;
+padding: 5px;
+}
