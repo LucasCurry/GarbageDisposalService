@@ -61,7 +61,11 @@
           <form th:action="@{'/task/' + ${task.id}}" method="post">
 <!--          <button class="btn btn-outline-dark flex-shrink-0" type="button">Boka-->
 <!--            <input th:if="${task.accountId != accountid}" sec:authorize="isAuthenticated()" type="submit" th:class="btn btn-outline-dark flex-shrink-0" value="BOKA">-->
-              <input type="submit" value="BOKA" class="btn btn-outline-dark flex-shrink-0">
+             <div th:if="${accountid != task.bookedId}">
+              <input th:if="${task.accountId != accountid}" type="submit" value="BOKA" class="btn btn-outline-dark flex-shrink-0">
+             </div>
+
+
 
 <!--            <i class="bi-cart-fill me-1"></i>-->
 
