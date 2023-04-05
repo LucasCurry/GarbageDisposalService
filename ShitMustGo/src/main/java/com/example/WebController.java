@@ -51,6 +51,21 @@ public class WebController {
         model.addAttribute("numOfPages", numOfPages);
         return "home";
     }
+    @GetMapping("/home2")
+    String home2(Model model) {
+        model.addAttribute("task", tasks);
+        return "home2";
+    }
+
+    /* @PostMapping("/home2")
+    String home2post(Model model, @RequestParam(required = false, defaultValue = "") String cities, @RequestParam(required = false, defaultValue = "") String sorting, @RequestParam(required = false, defaultValue = "0") int page) {
+        tasks = taskService.sortList(cities, sorting, page);
+        double numOfPages = taskService.numberOfPages(9);
+        model.addAttribute("task", tasks);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("numOfPages", numOfPages);
+        return "home2";
+    }*/
 
     //Sorting Tasks
     @PostMapping("/home")
@@ -64,14 +79,22 @@ public class WebController {
     }
 
 
-    //TaskPage Controller
     @GetMapping("/task/{id}")
-    String task(Model model, @PathVariable Long id) {
+    String task2(Model model, @PathVariable Long id) {
         model.addAttribute("task", taskRepo.findById(id).get());
         model.addAttribute("accountid", accService.getAccountId());
         System.out.println(accService.getAccountId());
 
-        return "task";
+        return "task2";
+
+    //TaskPage Controller
+//    @GetMapping("/task/{id}")
+//    String task(Model model, @PathVariable Long id) {
+//        model.addAttribute("task", taskRepo.findById(id).get());
+//        model.addAttribute("accountid", accService.getAccountId());
+//        System.out.println(accService.getAccountId());
+//
+//        return "task";
     }
 
     @PostMapping("/task/{id}")
@@ -120,7 +143,7 @@ public class WebController {
         model.addAttribute("account", accountRepo.findById(id).get().firstName);
         model.addAttribute("task", taskRepo.findAllByAccountId(id));
         model.addAttribute("bookedTask", taskRepo.findAllByBookedId(id));
-        return "accountpage";
+        return "accountpage2";
     }
 
     @GetMapping("/account/create")
@@ -201,7 +224,7 @@ public class WebController {
         Task task = taskRepo.findById(id2).get();
         task.setAccepted(true);
         taskRepo.save(task);
-        return "redirect:/account";
+        return "redirect:/task/" + id2;
 
     }
     @PostMapping("/decline")
@@ -225,4 +248,6 @@ public class WebController {
         model.addAttribute("task", taskRepo.findById(id).get());
         return "payment";
     }
+
+
 }

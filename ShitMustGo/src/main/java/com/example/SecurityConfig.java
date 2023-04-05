@@ -31,7 +31,7 @@ public class SecurityConfig {
 
         http
                 .authorizeHttpRequests()
-                .requestMatchers("/","/login","/register", "/css/**", "/images/**", "/task/**", "/contact/**", "/customerservice/**", "/faq/**","/hello/**","/webjars/**","/gs-guide-websocket/**", "/home/**").permitAll()
+                .requestMatchers("/","/login","/register", "/css/**", "/images/**", "/task/**", "/contact/**", "/customerservice/**", "/faq/**","/hello/**","/webjars/**","/gs-guide-websocket/**", "/home/**", "/home2/**").permitAll()
                 .anyRequest().authenticated();
         http
                 .formLogin()
