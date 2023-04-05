@@ -250,6 +250,7 @@ a {
 }
 a:hover {
   color: var(--bs-link-hover-color);
+  text-decoration: none;
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
@@ -10829,7 +10830,22 @@ textarea.form-control-lg {
   }
 }
 
+/*CSS som vi har skapat (inte importerade från bootstrap)*/
+
 .remove-marker {
 list-style-type: none;
 list-style-type: none;
+}
+
+.img-w350h350 {
+width: 350px
+height: 350px
+}
+
+.remove-blue-a-text {
+color: white !important;
+}
+
+.clear {
+all: initial;
 }

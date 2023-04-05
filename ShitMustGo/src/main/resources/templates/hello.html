@@ -1,21 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
   <title>Hello WebSocket</title>
-  <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/css/style.css" rel="stylesheet">
-
+  <link rel="icon" type="image/x-icon" href="/images/garbage-truck.png">
+  <!-- Bootstrap icons-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="/css/style2.css" rel="stylesheet" />
 </head>
 <body>
-<nav th:replace="fragments::navbar"></nav>
+<!-- Navigation-->
+<nav th:insert="~{fragments::navbar}"></nav>
+
 <noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
   enabled. Please enable
   Javascript and reload this page!</h2></noscript>
-<div th:class="chat-task-div">
-  <img th:class="chat-img" th:src="${task.image}" alt=""/>
-  <div th:class="chat-task-text">
-    <li th:class="name" th:text="${task.title}"></li>
-    <li th:class="name" th:text="'Betalning: ' + ${task.price} + ' kr'"></li>
+<div class="card">
+  <img class="chat-img img-w350h350" th:src="${task.image}" alt=""/>
+  <div class="chat-task-text">
+    <li class="name" th:text="${task.title}"></li>
+    <li class="name" th:text="'Betalning: ' + ${task.price} + ' kr'"></li>
   </div>
 </div>
 
@@ -55,9 +63,12 @@
     </div>
   </div>
 </div>
+<footer th:insert="~{fragments::footer}"></footer>
 <script src="/webjars/jquery/jquery.min.js"></script>
 <script src="/webjars/sockjs-client/sockjs.min.js"></script>
 <script src="/webjars/stomp-websocket/stomp.min.js"></script>
 <script src="/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
