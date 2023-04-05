@@ -52,6 +52,11 @@ public class WebController {
         model.addAttribute("numOfPages", numOfPages);
         return "home";
     }
+    @GetMapping("/home2")
+    String home2(Model model) {
+        model.addAttribute("task", tasks);
+        return "home2";
+    }
 
     //Sorting Tasks
     @PostMapping("/home")
@@ -65,14 +70,22 @@ public class WebController {
     }
 
 
-    //TaskPage Controller
     @GetMapping("/task/{id}")
-    String task(Model model, @PathVariable Long id) {
+    String task2(Model model, @PathVariable Long id) {
         model.addAttribute("task", taskRepo.findById(id).get());
         model.addAttribute("accountid", accService.getAccountId());
         System.out.println(accService.getAccountId());
 
-        return "task";
+        return "task2";
+
+    //TaskPage Controller
+//    @GetMapping("/task/{id}")
+//    String task(Model model, @PathVariable Long id) {
+//        model.addAttribute("task", taskRepo.findById(id).get());
+//        model.addAttribute("accountid", accService.getAccountId());
+//        System.out.println(accService.getAccountId());
+//
+//        return "task";
     }
 
     @PostMapping("/task/{id}")
@@ -99,7 +112,7 @@ public class WebController {
         model.addAttribute("account", accountRepo.findById(id).get().firstName);
         model.addAttribute("task", taskRepo.findAllByAccountId(id));
         model.addAttribute("bookedTask", taskRepo.findAllByBookedId(id));
-        return "accountpage";
+        return "accountpage2";
     }
 
     @GetMapping("/account/create")
@@ -192,4 +205,6 @@ public class WebController {
         model.addAttribute("task", taskRepo.findById(id).get());
         return "payment";
     }
+
+
 }
