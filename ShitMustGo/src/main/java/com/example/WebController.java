@@ -58,6 +58,16 @@ public class WebController {
         return "home2";
     }
 
+    /* @PostMapping("/home2")
+    String home2post(Model model, @RequestParam(required = false, defaultValue = "") String cities, @RequestParam(required = false, defaultValue = "") String sorting, @RequestParam(required = false, defaultValue = "0") int page) {
+        tasks = taskService.sortList(cities, sorting, page);
+        double numOfPages = taskService.numberOfPages(9);
+        model.addAttribute("task", tasks);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("numOfPages", numOfPages);
+        return "home2";
+    }*/
+
     //Sorting Tasks
     @PostMapping("/home")
     String sortCity(Model model, @RequestParam(required = false, defaultValue = "") String cities, @RequestParam(required = false, defaultValue = "") String sorting, @RequestParam(required = false, defaultValue = "0") int page) {
