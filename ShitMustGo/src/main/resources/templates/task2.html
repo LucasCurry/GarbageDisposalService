@@ -37,8 +37,7 @@
               <input th:if="${task.accountId != accountid}" type="submit" value="BOKA" class="btn btn-outline-dark flex-shrink-0">
              </div>
               <div th:if="${task.bookedId != null}">
-
-                 <a class="btn btn-outline-dark flex-shrink-0" th:href="'/task/' + ${task.id} + '/chat'">CHATT</a>
+                  <button class="btn btn-outline-dark flex-shrink-0 "><a class="clear" th:href="'/task/' + ${task.id} + '/chat'">CHATT</a></button>
               </div>
               <div th:if="${task.accountId == accountid}">
                   <form th:if="${task.bookedId != null && !task.isAccepted}" action="/decline" method="post">

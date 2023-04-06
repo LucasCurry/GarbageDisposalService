@@ -1,8 +1,8 @@
 @charset "UTF-8";
 /*!
-* Start Bootstrap - Shop Homepage v5.0.6 (https://startbootstrap.com/template/shop-homepage)
+* Start Bootstrap - Shop Item v5.0.6 (https://startbootstrap.com/template/shop-item)
 * Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-shop-homepage/blob/master/LICENSE)
+* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-shop-item/blob/master/LICENSE)
 */
 /*!
  * Bootstrap  v5.2.3 (https://getbootstrap.com/)
@@ -250,7 +250,6 @@ a {
 }
 a:hover {
   color: var(--bs-link-hover-color);
-  text-decoration: none;
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
@@ -7349,7 +7348,7 @@ textarea.form-control-lg {
   flex-grow: 1 !important;
 }
 
-.flex-shrink-0flex-shrink-0 {
+.flex-shrink-0 {
   flex-shrink: 0 !important;
 }
 
@@ -10824,28 +10823,5 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
-  .account-h2 {
-    position: flex;
-    align-items: center;
-  }
-}
 
-/*CSS som vi har skapat (inte importerade från bootstrap)*/
-
-.remove-marker {
-list-style-type: none;
-list-style-type: none;
-}
-
-.img-w350h350 {
-width: 350px
-height: 350px
-}
-
-.remove-blue-a-text {
-color: white !important;
-}
-
-.clear {
-all: initial;
 }

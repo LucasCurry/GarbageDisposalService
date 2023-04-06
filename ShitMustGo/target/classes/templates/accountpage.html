@@ -9,7 +9,7 @@
     <link rel="icon" type="image/x-icon" href="/images/garbage-truck.png">
 </head>
 <body>
-<nav th:replace="fragments::navbar"></nav>
+<nav th:insert="~{fragments::navbar}"></nav>
 <div class="accountWel">
 
     <h2 th:text="'Välkommen ' + ${account}">Välkommen</h2>
