@@ -10842,6 +10842,20 @@ width: 350px
 height: 350px
 }
 
+.home-atask-thumbnail {
+width: 267px;
+max-height: 267px;
+min-height: 267px;
+height: auto;
+}
+
+.home-img-thumbnail {
+width: 267px;
+max-height: 267px;
+min-height: 267px;
+height: auto;
+}
+
 .remove-blue-a-text {
 color: white !important;
 }

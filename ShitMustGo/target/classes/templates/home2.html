@@ -26,7 +26,7 @@
       <div class="col mb-5" th:each="task : ${task}">
         <div class="card h-100">
           <!-- Product image-->
-          <a th:href="'/task/' + ${task.id}"><img class="card-img-top" th:src="${task.image}" alt="..." /></a>
+          <a class="home-atask-thumbnail" th:href="'/task/' + ${task.id}"><img class="card-img-top home-img-thumbnail" th:src="${task.image}" alt="..." /></a>
           <!-- Product details-->
           <div class="card-body p-4">
             <div class="text-center">
