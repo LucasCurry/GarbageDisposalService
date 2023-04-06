@@ -10896,5 +10896,9 @@ text-decoration: underline;
 margin-top: 60px;
 }
 
+.registerError {
+color: red;
+}
+
 
 
