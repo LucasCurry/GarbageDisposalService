@@ -10866,4 +10866,18 @@ margin-right: 20px;
 
 .page, .pageChosen{
 margin: 0;
+color: black;
 }
+
+.page a {
+color: black;
+}
+
+.page a:hover {
+color: #800020;
+text-decoration: underline;
+}
+
+
+
+
