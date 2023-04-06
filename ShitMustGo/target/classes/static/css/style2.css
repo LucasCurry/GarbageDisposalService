@@ -10837,11 +10837,6 @@ list-style-type: none;
 list-style-type: none;
 }
 
-.img-w350h350 {
-width: 350px
-height: 350px
-}
-
 .home-atask-thumbnail {
 width: 267px;
 max-height: 267px;
@@ -10902,12 +10897,25 @@ text-decoration: underline;
 
 .faq{
 margin-top: 60px;
+margin-top: 60px;
+}
+
+.chat-img-placement {
+margin-top: 55px;
+width: 350px;
+height: 350px;
+}
+.margin-bottom-60 {
+margin-bottom: 60px;
 }
 
 .registerError {
 color: red;
 }
 
+.margin-bottom-10 {
+margin-bottom: 10px;
+}
 
 /* Filtering HomePage*/
 
