@@ -49,7 +49,7 @@ public class WebController {
         model.addAttribute("task", tasks);
         model.addAttribute("currentPage", page);
         model.addAttribute("numOfPages", numOfPages);
-        return "home";
+        return "home2";
     }
     @GetMapping("/home2")
     String home2(Model model) {
@@ -75,7 +75,7 @@ public class WebController {
         model.addAttribute("task", tasks);
         model.addAttribute("currentPage", page);
         model.addAttribute("numOfPages", numOfPages);
-        return "home";
+        return "home2";
     }
 
 

@@ -10849,3 +10849,21 @@ color: white !important;
 .clear {
 all: initial;
 }
+
+.pageView{
+display: flex;
+margin-bottom: 50px;
+justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.pageLab{
+margin-left: 20px;
+margin-right: 20px;
+}
+
+.page, .pageChosen{
+margin: 0;
+}
