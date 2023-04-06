@@ -19,6 +19,38 @@
 <!-- Header-->
 <header th:insert="~{fragments::header}"> </header>
 
+
+<!-- filtrering -->
+<div class="filtermom">
+<div class="filter">
+  <div class="uppdragKnapp">
+  <a sec:authorize="isAuthenticated()" href="/account/create" class="btn btn-outline-dark mt-auto">Skapa Uppdrag</a>
+  </div>
+  <div class="filterKnapp">
+  <form action="/home" method="post" class="book">
+    <label for="cities">
+      <select name="cities" id="cities" class="form-select">
+        <option value="" disabled selected>Välj stad...</option>
+        <option value="Stockholm">Stockholm</option>
+        <option value="Göteborg">Göteborg</option>
+        <option value="Malmö">Malmö</option>
+      </select>
+    </label>
+    <label for="Sorting">
+      <select name="sorting" id="Sorting" class="form-select">
+        <option value="" disabled selected>Sortera efter...</option>
+        <option value="HighPrice">Högsta pris</option>
+        <option value="LowPrice">Lägsta pris</option>
+        <option value="Recent">Senaste tillagda</option>
+      </select>
+    </label>
+    <label>
+    <input type="submit" value="Filtrera" class="btn btn-outline-dark mt-auto inputfilter">
+    </label>
+  </form>
+  </div>
+</div>
+</div>
 <!-- Section-->
 <section class="py-5">
   <div class="container px-4 px-lg-5 mt-5">
