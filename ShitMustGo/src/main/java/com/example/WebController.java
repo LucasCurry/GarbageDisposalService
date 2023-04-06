@@ -83,7 +83,7 @@ public class WebController {
     String task2(Model model, @PathVariable Long id) {
         model.addAttribute("task", taskRepo.findById(id).get());
         model.addAttribute("accountid", accService.getAccountId());
-        System.out.println(accService.getAccountId());
+
 
         return "task2";
 
@@ -248,6 +248,8 @@ public class WebController {
         model.addAttribute("task", taskRepo.findById(id).get());
         return "payment";
     }
+
+
 
 
 }
