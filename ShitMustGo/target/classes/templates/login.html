@@ -11,7 +11,7 @@
     <link rel="icon" type="image/x-icon" href="/images/garbage-truck.png">
 </head>
 <body>
-<nav th:replace="fragments::navbar"></nav>
+<nav th:replace="~{fragments::navbar}"></nav>
             <!-- Login From-->
 <!--<div class="logindiv">
     <div class="login">
@@ -73,7 +73,7 @@
         </div>
     </div>
 </section>
-
+<footer th:insert="~{fragment::footer"></footer>
 
 </body>
 </html>
