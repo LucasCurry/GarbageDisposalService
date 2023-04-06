@@ -19,22 +19,32 @@
 <noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
   enabled. Please enable
   Javascript and reload this page!</h2></noscript>
-<div class="card">
-  <img class="chat-img img-w350h350" th:src="${task.image}" alt=""/>
-  <div class="chat-task-text">
-    <li class="name" th:text="${task.title}"></li>
-    <li class="name" th:text="'Betalning: ' + ${task.price} + ' kr'"></li>
-  </div>
-</div>
 
-<div id="main-content" class="container">
+<section class="py-5">
+  <div class="container px-4 px-lg-5 my-5">
+    <div class="row gx-4 gx-lg-5 align-items-center">
+      <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" th:src="${task.image}" alt="..." /></div>
+      <div class="col-md-6">
+        <!--        <div class="small mb-1" th:text="'${task.id}">SKU: BST-498</div>-->
+        <h1 class="display-5 fw-bolder" th:text="${task.title}">Shop item template</h1>
+        <div class="fs-5 mb-5">
+          <span  th:text="${task.price} + ' kr'">$45.00</span>
+        </div>
+        <p class="lead" th:text="${task.description}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="main-content" class="container margin-bottom-60">
   <div class="row">
     <div class="col-md-6">
       <form class="form-inline">
         <div class="form-group">
           <label for="connect">Anslut till chatten:</label>
-          <button id="connect" class="btn btn-default" type="submit">Anslut</button>
-          <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Koppla bort
+          <button id="connect" class="btn btn-outline-dark flex-shrink-0" type="submit">Anslut</button>
+          <button id="disconnect" class="btn btn-outline-dark flex-shrink-0" type="submit" disabled="disabled">Koppla bort
           </button>
         </div>
       </form>
@@ -43,9 +53,9 @@
       <form class="form-inline" onsubmit="this.reset();">
         <div class="form-group">
           <label for="name">Meddelande</label>
-          <input type="text" id="name" class="form-control" placeholder="Ditt meddelande">
+          <input type="text" id="name" class="form-control margin-bottom-10" placeholder="Ditt meddelande">
         </div>
-        <button id="send" class="btn btn-default" type="submit">Skicka</button>
+        <button id="send" class="btn btn-outline-dark flex-shrink-0" type="submit">Skicka</button>
       </form>
     </div>
   </div>
