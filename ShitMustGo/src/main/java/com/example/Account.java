@@ -35,15 +35,14 @@ public class Account {
     String email;
     @NotEmpty(message = "Fältet får ej vara tomt")
     String address;
-    @NotEmpty(message = "Fältet får ej vara tomt")
-    String cardnumber;
+
 
 
 
     public Account() {
     }
 
-    public Account(String firstName, String lastName, String username, String password, String phoneNumber, String email, String adress, String cardnumber) {
+    public Account(String firstName, String lastName, String username, String password, String phoneNumber, String email, String adress) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -51,7 +50,7 @@ public class Account {
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.address = adress;
-        this.cardnumber = cardnumber;
+
     }
 
 
@@ -69,14 +68,6 @@ public class Account {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getCardnumber() {
-        return cardnumber;
-    }
-
-    public void setCardnumber(String cardnumber) {
-        this.cardnumber = cardnumber;
     }
 
     public Long getId() {
@@ -137,8 +128,6 @@ public class Account {
                 ", password='" + password + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
-                ", address='" + address + '\'' +
-                ", cardnumber='" + cardnumber + '\'' +
-                '}';
+                ", address='" + address + '}';
     }
 }

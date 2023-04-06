@@ -12,6 +12,7 @@
 </head>
 <body>
 <nav th:replace="~{fragments::navbar}"></nav>
+
             <!-- Login From-->
 <!--<div class="logindiv">
     <div class="login">
@@ -50,7 +51,7 @@
                                 <input type="password" id="typePasswordX" class="form-control form-control-lg" name="password" />
                                 <label class="form-label" for="typePasswordX">Password</label>
                             </div>
-
+                                <p class="errormessage" th:if="${failedLogin}">Fel användarnamn eller lösenord</p>
                             <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
                             </form>
 
@@ -73,7 +74,7 @@
         </div>
     </div>
 </section>
-<footer th:insert="~{fragment::footer"></footer>
+<footer th:insert="~{fragments::footer}"></footer>
 
 </body>
 </html>
