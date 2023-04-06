@@ -45,7 +45,7 @@
                       <button th:value="${task.id}" class="btn btn-outline-dark flex-shrink-0" name="id" type="submit">Neka</button>
                   </form>
                   <div th:if="${task.bookedId != null && task.isAccepted}">
-                      <button class="btn btn-outline-dark flex-shrink-0"><a th:href="'/task/' + ${task.id} + '/payment'">BETALA</a></button>
+                      <a class="btn btn-outline-dark flex-shrink-0" th:href="'/task/' + ${task.id} + '/payment'">BETALA</a>
                   </div>
               </div>
 
