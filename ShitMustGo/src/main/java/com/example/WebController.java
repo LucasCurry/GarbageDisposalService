@@ -44,8 +44,8 @@ public class WebController {
     }
     @GetMapping("/home")
     String home(Model model, @RequestParam(required = false, defaultValue = "0") int page) {
-        tasks = taskService.getPage(page, 9);
-        double numOfPages = taskService.numberOfPages(9);
+        tasks = taskService.getPage(page, 12);
+        double numOfPages = taskService.numberOfPages(12);
         model.addAttribute("task", tasks);
         model.addAttribute("currentPage", page);
         model.addAttribute("numOfPages", numOfPages);
@@ -71,7 +71,7 @@ public class WebController {
     @PostMapping("/home")
     String sortCity(Model model, @RequestParam(required = false, defaultValue = "") String cities, @RequestParam(required = false, defaultValue = "") String sorting, @RequestParam(required = false, defaultValue = "0") int page) {
         tasks = taskService.sortList(cities, sorting, page);
-        double numOfPages = taskService.numberOfPages(9);
+        double numOfPages = taskService.numberOfPages(12);
         model.addAttribute("task", tasks);
         model.addAttribute("currentPage", page);
         model.addAttribute("numOfPages", numOfPages);

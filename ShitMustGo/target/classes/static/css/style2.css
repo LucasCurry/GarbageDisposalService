@@ -10829,17 +10829,12 @@ textarea.form-control-lg {
     align-items: center;
   }
 }
-
+/* Under rat 10833 skriver vi vår egna css kod!!!!!!!!!!!*/
 /*CSS som vi har skapat (inte importerade från bootstrap)*/
 
 .remove-marker {
 list-style-type: none;
 list-style-type: none;
-}
-
-.img-w350h350 {
-width: 350px
-height: 350px
 }
 
 .home-atask-thumbnail {
@@ -10856,13 +10851,19 @@ min-height: 267px;
 height: auto;
 }
 
+/* Anchor styling*/
+
 .remove-blue-a-text {
 color: white !important;
 }
 
+/* Vad gör denna?*/
 .clear {
 all: initial;
 }
+
+
+/* pagination styling homepage*/
 
 .pageView{
 display: flex;
@@ -10892,9 +10893,55 @@ color: #800020;
 text-decoration: underline;
 }
 
+/* faq page */
+
 .faq{
+margin-top: 60px;
 margin-top: 60px;
 }
 
+.chat-img-placement {
+margin-top: 55px;
+width: 350px;
+height: 350px;
+}
+.margin-bottom-60 {
+margin-bottom: 60px;
+}
+
+.registerError {
+color: red;
+}
+
+.margin-bottom-10 {
+margin-bottom: 10px;
+}
+
+/* Filtering HomePage*/
+
+.filtermom{
+display: flex;
+align-items: center;
+justify-content: center;
+ }
+
+ .filter{
+padding-top: 20px;
+display: flex;
+flex-direction: column;
+align-items: center;
+ }
+
+ .uppdragKnapp, .filterKnapp{
+ padding-top: 20px;
+ }
+
+ .filterKnapp{
+display: flex;
+ }
+
+.inputfilter{
+margin-bottom: 5px;
+}
 
 

@@ -40,6 +40,11 @@ public class AccountService {
             ra.addFlashAttribute("FailedSignup", "Inte samma lösenord.");
             return "register";
         }
+        if(accRepo.findByUsername(account.getUsername()) != null) {
+            bindingResult.rejectValue("username", "error", "Användarnamnet är upptaget.");
+            ra.addFlashAttribute("FailedSignup", "Användarnamnet är upptaget.");
+            return "register";
+        }
         if (bindingResult.hasErrors()){
             ra.addFlashAttribute("FailedSignup", "Något blev fel, försök igen");
             return "register";

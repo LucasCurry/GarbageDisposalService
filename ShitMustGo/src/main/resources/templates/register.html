@@ -87,13 +87,15 @@
                                     <div class="col-md-6 mb-4">
                                         <div class="form-outline">
                                             <input type="text" id="form3Example1m" class="form-control form-control-lg" th:field="*{firstName}" />
-                                            <label class="form-label" for="form3Example1m">First name</label>
+                                            <label class="form-label" for="form3Example1m">Förnamn</label>
+                                            <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="registerError"></p>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <div class="form-outline">
                                             <input type="text" id="form3Example1n" class="form-control form-control-lg"th:field="*{lastName}" />
-                                            <label class="form-label" for="form3Example1n">Last name</label>
+                                            <label class="form-label" for="form3Example1n">Efternamn</label>
+                                            <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="registerError"></p>
                                         </div>
                                     </div>
                                 </div>
@@ -103,6 +105,7 @@
                                         <div class="form-outline">
                                             <input type="password" id="form3Example1m1" class="form-control form-control-lg" th:field="*{password}"/>
                                             <label class="form-label" for="form3Example1m1" >Lösenord</label>
+                                            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="registerError"></p>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-4">
@@ -116,19 +119,23 @@
                                 <div class="form-outline mb-4">
                                     <input type="text" id="form3Example8" class="form-control form-control-lg" th:field="*{address}"/>
                                     <label class="form-label" for="form3Example8">Address</label>
+                                    <p th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="registerError"></p>
                                 </div>
 
                                 <div class="form-outline mb-4">
                                     <input type="text" id="form3Example90" class="form-control form-control-lg" th:field="*{username}"/>
                                     <label class="form-label" for="form3Example9">Användarnamn</label>
+                                    <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="registerError"></p>
                                 </div>
                                 <div class="form-outline mb-4">
                                     <input type="email" id="form3Example99" class="form-control form-control-lg" th:field="*{email}" />
                                     <label class="form-label" for="form3Example9">Email</label>
+                                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="registerError"></p>
                                 </div>
                                 <div class="form-outline mb-4">
                                     <input type="text" id="form3Example9" class="form-control form-control-lg" th:field="*{phoneNumber}"/>
-                                    <label class="form-label" for="form3Example9">telefon nummber</label>
+                                    <label class="form-label" for="form3Example9">Telefonnummer</label>
+                                    <p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" class="registerError"></p>
                                 </div>
 
                                 <!--<div class="form-outline mb-4">
