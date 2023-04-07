@@ -10975,3 +10975,7 @@ margin-bottom: 5px;
       align-items: center;
       flex-direction: column;
   }
+
+.truckerFucker:hover{
+transform: rotate(90deg);
+}

@@ -10950,6 +10950,13 @@ display: flex;
 margin-bottom: 5px;
 }
 
+.thankyou {
+    display: flex;
+    justify-content: center!important;
+    align-items: center;
+    flex-direction: column;
+}
+
 .intercom-reaction-picker button span {
     display: inline-block;
     animation-duration: 0.5s;
@@ -10975,3 +10982,7 @@ margin-bottom: 5px;
       align-items: center;
       flex-direction: column;
   }
+
+.truckerFucker:hover{
+transform: rotate(90deg);
+}
