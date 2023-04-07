@@ -10838,7 +10838,7 @@ list-style-type: none;
 }
 
 .home-atask-thumbnail {
-width: 267px;
+max-width: 234px;
 max-height: 267px;
 min-height: 267px;
 height: auto;
