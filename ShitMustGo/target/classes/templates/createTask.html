@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Shop Homepage - Start Bootstrap Template</title>
+    <title>ShitMustGo Skapa uppdrag</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="/images/garbage-truck.png">
     <!-- Bootstrap icons-->
@@ -17,14 +17,7 @@
 <!-- Navigation-->
 <nav th:replace="fragments::navbar"></nav>
 <!-- Header-->
-<header class="bg-dark py-5">
-    <div class="container px-4 px-lg-5 my-5">
-        <div class="text-center text-white">
-            <h1 class="display-4 fw-bolder">Shit Must Go</h1>
-            <p class="lead fw-normal text-white-50 mb-0">För en grönare framtid</p>
-        </div>
-    </div>
-</header>
+<header th:insert="~{fragments::header}"> </header>
 <form th:class="new-task" action="/account/create" method="post">
     <div class="row">
         <div class="col">
@@ -51,7 +44,7 @@
         <input type="submit" value="Skapa" class="ctButton">
     </div>
 </form>
-<footer th:fragment="footer" class="py-1 bg-dark mt-auto fixed-bottom">
+<footer th:fragment="footer" class="py-1 mt-auto fixed-bottom header">
     <div class="container"><p class="m-0 text-center text-white">Copyright &copy; ShitMustGo 2023</p></div>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

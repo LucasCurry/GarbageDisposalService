@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Task page - Start Bootstrap Template</title>
+    <title>ShitMustGo Uppdragsida</title>
 
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="/images/garbage-truck.png">
@@ -21,10 +21,12 @@
 <!-- Navigation-->
 <nav th:insert="~{fragments::navbar}"></nav>
 
+<header th:insert="~{fragments::header}"> </header>
+
 <!-- Product section-->
 <section class="py-5">
   <div class="container px-4 px-lg-5 my-5">
-    <div class="row gx-4 gx-lg-5 align-items-center">
+    <div class="row gx-4 gx-lg-5 align-items-center pappabjörn">
       <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" th:src="${task.image}" alt="..." /></div>
       <div class="col-md-6">
         <h1 class="display-5 fw-bolder" th:text="${task.title}">Shop item template</h1>
@@ -56,7 +58,7 @@
   </div>
 </section>
 <!-- Footer-->
-<footer th:fragment="footer" class="py-1 bg-dark mt-auto fixed-bottom">
+<footer th:fragment="footer" class="py-1 mt-auto fixed-bottom header">
     <div class="container"><p class="m-0 text-center text-white">Copyright &copy; ShitMustGo 2023</p></div>
 </footer>
 <!-- Bootstrap core JS-->
