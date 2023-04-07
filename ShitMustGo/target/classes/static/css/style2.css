@@ -10846,7 +10846,7 @@ overflow-x: hidden;
 }
 
 .home-img-thumbnail {
-width: 267px;
+max-width: 234px;
 max-height: 267px;
 min-height: 267px;
 height: auto;
