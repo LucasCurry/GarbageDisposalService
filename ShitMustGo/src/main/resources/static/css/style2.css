@@ -10859,7 +10859,9 @@ overflow: hidden;
 color: white !important;
 }
 
-
+.header{
+background-color: #5c715e;
+}
 
 /* pagination styling homepage*/
 
