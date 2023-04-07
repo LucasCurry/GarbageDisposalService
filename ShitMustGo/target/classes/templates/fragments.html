@@ -11,10 +11,17 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                <li class="nav-item"><a class="nav-link active"  aria-current="page" href="/">Hem</a></li>
-                <li class="nav-item"><a class="nav-link" href="/faq">FAQ</a></li>
-                <li sec:authorize="!isAuthenticated()" class="nav-item"><a class="nav-link" href="/login">Logga in/Skapa konto</a></li>
-                <li sec:authorize="isAuthenticated()" class="nav-item"><a class="nav-link" href="/account">Konto</a></li>
+                <li th:if="${currentURL == 'localhost:8080/home'}" class="nav-item"><a class="nav-link active"  aria-current="page" href="/">Hem</a></li>
+                <li th:if="${currentURL != 'localhost:8080/home'}" class="nav-item"><a class="nav-link"   href="/">Hem</a></li>
+
+                <li th:if="${currentURL == 'localhost:8080/faq'}" aria-current="page" class="nav-item"><a class="nav-link active" href="/faq">FAQ</a></li>
+                <li th:if="${currentURL != 'localhost:8080/faq'}"  class="nav-item"><a class="nav-link" href="/faq">FAQ</a></li>
+
+                <li th:if="${currentURL == 'localhost:8080/login' or currentURL == 'localhost:8080/register'}" sec:authorize="!isAuthenticated()" class="nav-item"><a class="nav-link active" href="/login">Logga in/Skapa konto</a></li>
+                <li th:if="${currentURL != 'localhost:8080/login' and currentURL != 'localhost:8080/register'}" sec:authorize="!isAuthenticated()" class="nav-item"><a class="nav-link " href="/login">Logga in/Skapa konto</a></li>
+
+                <li th:if="${currentURL == 'localhost:8080/account'}" sec:authorize="isAuthenticated()" class="nav-item"><a class="nav-link active" href="/account">Konto</a></li>
+                <li th:if="${currentURL != 'localhost:8080/account'}" sec:authorize="isAuthenticated()" class="nav-item"><a class="nav-link" href="/account">Konto</a></li>
             </ul>
                 <form sec:authorize="isAuthenticated()" class="d-flex" th:action="@{/logout}" method="POST" >
                     <input type="submit" class="btn btn-outline-dark flex-shrink-0" value="Logout">
