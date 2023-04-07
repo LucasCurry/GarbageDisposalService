@@ -10963,3 +10963,9 @@ margin-bottom: 5px;
       transform: scale(1);
     }
   }
+  .thankyou {
+      display: flex;
+      justify-content: center!important;
+      align-items: center;
+      flex-direction: column;
+  }
