@@ -10942,4 +10942,22 @@ display: flex;
 margin-bottom: 5px;
 }
 
+.intercom-reaction-picker button span {
+    display: inline-block;
+    animation-duration: 0.5s;
+    animation-name: bounce;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
 
+  @keyframes bounce {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
