@@ -200,6 +200,7 @@ public class WebController {
     @GetMapping("/task/{id}/payment")
     String payment(Model model, @PathVariable Long id) {
         model.addAttribute("task", taskRepo.findById(id).get());
+        model.addAttribute("account", accountRepo.findById(accService.getAccountId()).get());
         return "payment";
     }
 
