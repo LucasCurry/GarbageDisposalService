@@ -49,6 +49,7 @@ public class WebController {
         model.addAttribute("task", tasks);
         model.addAttribute("currentPage", page);
         model.addAttribute("numOfPages", numOfPages);
+        model.addAttribute("currentURL", "localhost:8080/home");
         return "home2";
     }
     @GetMapping("/home2")
@@ -88,11 +89,13 @@ public class WebController {
     //Login Controllers
     @GetMapping("/login")
     String login(Model model) {
+        model.addAttribute("currentURL", "localhost:8080/login");
         return "login";
     }
     @GetMapping("/login-error")
     String loginError(Model model){
         model.addAttribute("failedLogin", true);
+        model.addAttribute("currentURL", "localhost:8080/login-error");
         return "login";
     }
 
@@ -105,11 +108,13 @@ public class WebController {
         model.addAttribute("account", accountRepo.findById(id).get().firstName);
         model.addAttribute("task", taskRepo.findAllByAccountId(id));
         model.addAttribute("bookedTask", taskRepo.findAllByBookedId(id));
+        model.addAttribute("currentURL", "localhost:8080/account");
         return "accountpage2";
     }
     @GetMapping("/account/create")
     String createTask(Model model) {
         model.addAttribute("accountId", accService.getAccountId());
+        model.addAttribute("currentURL", "localhost:8080/account/create");
         return "createTask";
     }
     @PostMapping("/account/create")
@@ -125,7 +130,6 @@ public class WebController {
         Task task = taskRepo.findById(id).get();
         task.setBookedId(null);
         taskRepo.save(task);
-
         return "redirect:/account";
     }
     @GetMapping("/account/{id}/delete")
@@ -150,6 +154,7 @@ public class WebController {
     @GetMapping("/register")
     String register(Model model) {
         model.addAttribute("account", new Account());
+        model.addAttribute("currentURL", "localhost:8080/register");
         return "register";
     }
     @PostMapping("/register")
@@ -160,7 +165,9 @@ public class WebController {
 
 // FAQ controller
     @GetMapping("/faq")
-    String faq() {
+    String faq(Model model) {
+        String currentURL = "localhost:8080/faq";
+        model.addAttribute("currentURL", currentURL);
         return "faq";
     }
 
