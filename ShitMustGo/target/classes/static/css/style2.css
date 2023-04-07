@@ -10948,3 +10948,8 @@ margin-bottom: 5px;
     align-items: center;
     flex-direction: column;
 }
+
+.account {
+    width: 100%;
+    padding-bottom: 20px;
+}
