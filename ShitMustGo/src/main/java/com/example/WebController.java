@@ -196,7 +196,11 @@ public class WebController {
         return "payment";
     }
 
-
+    @GetMapping("task/{id}/payaccepted")
+    String paymentAccepted(Model model, @PathVariable Long id) {
+        model.addAttribute("task", taskRepo.findById(id).get());
+        return "thankYou";
+    }
 
 
 }

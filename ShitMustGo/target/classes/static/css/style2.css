@@ -10846,7 +10846,7 @@ overflow-x: hidden;
 }
 
 .home-img-thumbnail {
-max-width: 234px;
+width: 267px;
 max-height: 267px;
 min-height: 267px;
 height: auto;
@@ -10942,4 +10942,9 @@ display: flex;
 margin-bottom: 5px;
 }
 
-
+.thankyou {
+    display: flex;
+    justify-content: center!important;
+    align-items: center;
+    flex-direction: column;
+}
