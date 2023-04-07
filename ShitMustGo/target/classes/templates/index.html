@@ -49,7 +49,7 @@
 </nav>
 
 <div class="container">
-  <form method="post"th:object="${rating}" class="mt-5">
+  <form action="/index" method="post"th:object="${rating}" class="mt-5">
 
     <input value="0" type="hidden" class="rating" data-glyphicon="0"
            th:field="*{stars}">

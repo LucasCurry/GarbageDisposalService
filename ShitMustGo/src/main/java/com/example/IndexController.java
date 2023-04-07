@@ -13,7 +13,7 @@ public class IndexController {
         return "index";
     }
 
-    @PostMapping
+    @PostMapping("/index")
     public String save(Rating rating, Model model) {
         model.addAttribute("rating", rating);
         return "saved";
