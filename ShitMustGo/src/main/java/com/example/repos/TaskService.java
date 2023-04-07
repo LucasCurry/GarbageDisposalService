@@ -17,70 +17,71 @@ public class TaskService {
     }
 
     public List<Task> sortList(String city, String sort, int page) {
-        List<Task> tasks = getPage(page, 9);
+        int pageSize = 12;
+        List<Task> tasks = getPage(page, pageSize);
         if(city.equals("") && sort.equals("")){
             return tasks;
         } else if(sort.equals("")) {
             tasks = taskRepo.findAllByCity(city);
-            return getPage(page, 9, tasks);
+            return getPage(page, pageSize, tasks);
         } else if (city.equals("")){
         switch (sort) {
             case "HighPrice" -> {
                 tasks = taskRepo.findAllByOrderByPriceDesc();
-                return getPage(page, 9, tasks);
+                return getPage(page, pageSize, tasks);
             }
             case "LowPrice" -> {
                 tasks = taskRepo.findAllByOrderByPrice();
-                return getPage(page, 9, tasks);
+                return getPage(page, pageSize, tasks);
             }
             case "Recent" -> {
                 tasks = taskRepo.findAllByOrderByCreatedAtDesc();
-                return getPage(page, 9, tasks);
+                return getPage(page, pageSize, tasks);
             }
         }
         } else if (city.equals("Stockholm")){
             switch (sort) {
                 case "HighPrice" -> {
                     tasks = taskRepo.findByCityOrderByPriceDesc(city);
-                    return getPage(page, 9, tasks);
+                    return getPage(page, pageSize, tasks);
                 }
                 case "LowPrice" -> {
                     tasks = taskRepo.findByCityOrderByPrice(city);
-                    return getPage(page, 9, tasks);
+                    return getPage(page, pageSize, tasks);
                 }
                 case "Recent" -> {
                     tasks = taskRepo.findByCityOrderByCreatedAtDesc(city);
-                    return getPage(page, 9, tasks);
+                    return getPage(page, pageSize, tasks);
                 }
             }
         }else if (city.equals("Göteborg")){
             switch (sort) {
                 case "HighPrice" -> {
                     tasks = taskRepo.findByCityOrderByPriceDesc(city);
-                    return getPage(page, 9, tasks);
+                    return getPage(page, pageSize, tasks);
                 }
                 case "LowPrice" -> {
                     tasks = taskRepo.findByCityOrderByPrice(city);
-                    return getPage(page, 9, tasks);
+                    return getPage(page, pageSize, tasks);
                 }
                 case "Recent" -> {
                     tasks = taskRepo.findByCityOrderByCreatedAtDesc(city);
-                    return getPage(page, 9, tasks);
+                    return getPage(page, pageSize, tasks);
                 }
             }
         }else if (city.equals("Malmö")){
             switch (sort) {
                 case "HighPrice" -> {
                     tasks = taskRepo.findByCityOrderByPriceDesc(city);
-                    return getPage(page, 9, tasks);
+                    return getPage(page, pageSize, tasks);
                 }
                 case "LowPrice" -> {
                     tasks = taskRepo.findByCityOrderByPrice(city);
-                    return getPage(page, 9, tasks);
+                    return getPage(page, pageSize, tasks);
                 }
                 case "Recent" -> {
                     tasks = taskRepo.findByCityOrderByCreatedAtDesc(city);
-                    return getPage(page, 9, tasks);
+                    return getPage(page, pageSize, tasks);
                 }
             }
         }
