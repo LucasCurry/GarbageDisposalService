@@ -23,51 +23,6 @@
 <div th:if="${FailedSignup}" class="alert alert-danger" role="alert" text-center>
     [[${FailedSignup}]]
 </div>
-<!--<form action="/register" method="post" th:object="${account}">
-    <div class="row">
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Förnamn" th:field="*{firstName}">
-            <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p>
-        </div>
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Efternamn" th:field="*{lastName}">
-            <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></p>
-        </div>
-        <div class="col">
-            <input type="email" class="form-control" placeholder="Email" th:field="*{email}">
-            <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Användarnamn" th:field="*{username}">
-            <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
-
-        </div>
-        <div class="col">
-            <input type="password" class="form-control" placeholder="Lösenord" th:field="*{password}">
-            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
-        </div>
-        <div class="col">
-            <input type="password" class="form-control" placeholder="Upprepa Lösenord" name="passwordControll">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Telefonnummer" th:field="*{phoneNumber}">
-            <p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></p>
-        </div>
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Adress" th:field="*{address}">
-            <p th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <button type="submit" class="btn btn-primary">Skapa konto</button>
-        </div>
-    </div>
-</form>-->
 
 <section class="h-100 bg-white registerform">
     <div class="container py-5 h-100">
