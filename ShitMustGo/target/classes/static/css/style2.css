@@ -10903,10 +10903,6 @@ text-decoration: underline;
 
 /* faq page */
 
-.faq{
-margin-top: 60px;
-}
-
 .chat-img-placement {
 margin-top: 55px;
 width: 350px;
@@ -10983,4 +10979,11 @@ margin-bottom: 5px;
 }
 .truckerFucker:hover{
 transform: rotate(90deg);
+}
+
+.pappabjörn{
+border: 3px solid;
+border-radius: 15px;
+border-color: #5c715e;
+box-shadow: 10px 5px 5px gray;
 }
