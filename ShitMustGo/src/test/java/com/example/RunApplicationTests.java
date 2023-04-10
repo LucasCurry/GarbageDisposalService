@@ -33,7 +33,7 @@ public class RunApplicationTests {
 
 	@Test
 	public void testAddDeleteUser(){
-		Account account = new Account("hej", "0","0","0","0","0","0");
+		Account account = new Account("hej", "0","0","123","0","jod@a.se","0");
 		Long count = accRepo.count();
 
 		accRepo.save(account);
@@ -67,7 +67,7 @@ public class RunApplicationTests {
 	public void testServiceAddDeleteUser() {
 
 		Long count = accRepo.count();
-		Account validNewAccount = new Account("heh","heh","heh","heh","heh@heh.se","123","hehvägen 3");
+		Account validNewAccount = new Account("heh","heh","heh","heh","123","heh@heh.se","hehvägen 3");
 
 		// Add new user -> Successful, return "redirect:/login"
 		Assertions.assertEquals("redirect:/login", accService.addUser(validNewAccount));
@@ -80,12 +80,7 @@ public class RunApplicationTests {
 		Assertions.assertEquals(count,accRepo.count());
 
 		// Add new user with already existing username -> Unsuccessful, return "register"
-		Account alreadyExistingUsername = new Account("heh","heh","Hej","heh","heh@heh.se","123","hehvägen 3");
+		Account alreadyExistingUsername = new Account("heh","heh","Hej","heh","123","heh@heh.se","hehvägen 3");
 		Assertions.assertEquals("register", accService.addUser(alreadyExistingUsername));
-
-		// Assertions.assertEquals("register",accService.addUser("heh","heh","Hej","heh","heh","heh@heh.se","123","hehvägen 3","12356"));
-		// Assertions.assertEquals("redirect:/login", accService.addUser("heh","heh","heh","heh","heh","heh@heh.se","123","hehvägen 3","12356"));
 	}
-
-
 }
