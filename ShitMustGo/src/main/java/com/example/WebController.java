@@ -120,16 +120,14 @@ public class WebController {
         return "createTask";
     }
     @PostMapping("/account/create")
-    String postCreateTask(@Valid Task task, Model model, @RequestParam String title, @RequestParam String description, @RequestParam int price, @RequestParam String image, @RequestParam String cities) {
+    String postCreateTask(@Valid Task task, BindingResult br, RedirectAttributes ra, Model model, @RequestParam String title, @RequestParam String description, @RequestParam Integer price, @RequestParam String image, @RequestParam String cities) {
         Long id = accService.getAccountId();
         accService.createTaskModelGen(model, title, description, price, image, id);
-        //task = new Task(title, accountRepo.findById(id).get().address, image, price, description, id, cities, LocalDateTime.now());
         task.setAccountId(id);
         task.setCity(cities);
         task.setCreatedAt(LocalDateTime.now());
         task.setAddress(accountRepo.findById(id).get().address);
-        taskService.addTask(task);
-        return "redirect:/";
+        return taskService.addTask(task, br, ra);
     }
     @GetMapping("/account/{id}/avboka")
     String avbokaTask(@PathVariable Long id) {
