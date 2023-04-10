@@ -14,23 +14,6 @@
 <body>
 <nav th:replace="~{fragments::navbar}"></nav>
 
-            <!-- Login From-->
-<!--<div class="logindiv">
-    <div class="login">
-        <h1 class="loginH2">Logga in</h1>
-    <form class="loginform" th:action="@{/login}" method="post">
-      <input class="input" type="text" name="username" placeholder="Användarnamn">
-      <input class="input" id="password" type="password" name="password" placeholder="Lösenord">
-        <p class="errormessage" th:if="${failedLogin}">Fel användarnamn eller lösenord</p>
-      <input class="loginButton" type="submit" value="Logga in">
-    </form>
-
-        <div class="signup">
-            <a class="register" href="/register"> <button class="signUpButton">Skapa konto</button></a>
-        </div>
-    </div>
-</div>-->
-
 <section class="vh-100">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -55,12 +38,6 @@
                                 <p class="errormessage" th:if="${failedLogin}">Fel användarnamn eller lösenord</p>
                             <button class="btn btn-outline-light btn-lg px-5" type="submit">Logga in</button>
                             </form>
-
-                            <div class="d-flex justify-content-center text-center mt-4 pt-1">
-                                <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
-                                <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-                                <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
-                            </div>
 
                         </div>
 
