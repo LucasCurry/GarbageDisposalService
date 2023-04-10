@@ -51,7 +51,7 @@
                       <a class="btn btn-outline-dark flex-shrink-0" th:href="'/task/' + ${task.id} + '/payment'">BETALA</a>
                   </div>
               </div>
-              <div th:if="${task.bookedId == accountid && !task.isAccepted}">
+              <div sec:authorize="isAuthenticated()" th:if="${task.bookedId == accountid && !task.isAccepted}">
                   <a class="btn btn-outline-dark flex-shrink-0" th:href="'/account/' + ${task.id} + '/avboka'">Avboka</a>
               </div>
           </form>
