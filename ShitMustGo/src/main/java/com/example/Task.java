@@ -2,6 +2,8 @@ package com.example;
 
 import com.example.repos.AccountRepo;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
@@ -12,11 +14,16 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+    @NotEmpty (message = "Fält får inte vara tomt.")
     String title;
+    @NotEmpty (message = "Fält får inte vara tomt.")
     String description;
     String address;
     String city;
+    @NotEmpty(message = "Vänligen ange bildlänk.")
     String image;
+    //
+    //@NotBlank(message = "Fält får inte vara tomt.")
     int price;
     Long accountId;
     Long bookedId;

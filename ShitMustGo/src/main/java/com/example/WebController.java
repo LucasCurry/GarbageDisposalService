@@ -115,13 +115,19 @@ public class WebController {
     String createTask(Model model) {
         model.addAttribute("accountId", accService.getAccountId());
         model.addAttribute("currentURL", "localhost:8080/account/create");
+        model.addAttribute("task", new Task());
+
         return "createTask";
     }
     @PostMapping("/account/create")
-    String postCreateTask(Model model, @RequestParam String title, @RequestParam String description, @RequestParam int price, @RequestParam String image, @RequestParam String cities) {
+    String postCreateTask(@Valid Task task, Model model, @RequestParam String title, @RequestParam String description, @RequestParam int price, @RequestParam String image, @RequestParam String cities) {
         Long id = accService.getAccountId();
         accService.createTaskModelGen(model, title, description, price, image, id);
-        Task task = new Task(title, accountRepo.findById(id).get().address, image, price, description, id, cities, LocalDateTime.now());
+        //task = new Task(title, accountRepo.findById(id).get().address, image, price, description, id, cities, LocalDateTime.now());
+        task.setAccountId(id);
+        task.setCity(cities);
+        task.setCreatedAt(LocalDateTime.now());
+        task.setAddress(accountRepo.findById(id).get().address);
         taskService.addTask(task);
         return "redirect:/";
     }
