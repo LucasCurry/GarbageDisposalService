@@ -44,12 +44,13 @@
                                                 <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="registerError"></p>
                                             </div>
                                         </div>
-                                        <div class="col-md-6 mb-4">
-                                            <div class="form-outline">
-                                                <input type="text" id="form3Example1n" class="form-control form-control-lg"th:field="*{description}" />
-                                                <label class="form-label" for="form3Example1n">Beskrivning</label>
-                                                <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="registerError"></p>
-                                            </div>
+                                    </div>
+
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                            <input type="text" id="form3Example1n" class="form-control form-control-lg"th:field="*{description}" />
+                                            <label class="form-label" for="form3Example1n">Beskrivning</label>
+                                            <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="registerError"></p>
                                         </div>
                                     </div>
 
@@ -69,16 +70,13 @@
                                     </div>
                                     <div>
                                         <label for="cities">
-                                            <select name="cities" id="cities" class="ctButton ">
+                                            <select name="cities" id="cities" class="form-select ">
                                                 <option value="Stockholm">Stockholm</option>
                                                 <option value="Göteborg">Göteborg</option>
                                                 <option value="Malmö">Malmö</option>
                                             </select>
                                         </label>
-                                        <input type="submit" value="Skapa" class="ctButton">
-                                    </div>
-                                    <div class="d-flex justify-content-end pt-3">
-                                        <button type="submit" class="btn btn-outline-light">Skapa Uppdrag</button>
+                                        <input type="submit" value="Skapa Uppdrag" class="btn btn-outline-light margin-l10-b5">
                                     </div>
                                 </form>
 
@@ -91,8 +89,6 @@
     </div>
     </div>
 </section>
-
-
 
 <footer th:fragment="footer" class="py-1 mt-auto fixed-bottom header">
     <div class="container"><p class="m-0 text-center text-white">Copyright &copy; ShitMustGo 2023</p></div>
