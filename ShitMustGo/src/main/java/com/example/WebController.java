@@ -45,7 +45,7 @@ public class WebController {
     @GetMapping("/home")
     String home(Model model, @RequestParam(required = false, defaultValue = "0") int page) {
         tasks = taskService.getPage(page, 12);
-        double numOfPages = taskService.numberOfPages(12, tasks);
+        double numOfPages = taskService.numberOfPages(12);
         model.addAttribute("task", tasks);
         model.addAttribute("currentPage", page);
         model.addAttribute("numOfPages", numOfPages);
@@ -58,18 +58,26 @@ public class WebController {
         return "home2";
     }
 
-
     //Sorting Tasks
     @PostMapping("/home")
     String sortCity(Model model, @RequestParam(required = false, defaultValue = "") String cities, @RequestParam(required = false, defaultValue = "") String sorting, @RequestParam(required = false, defaultValue = "0") int page) {
         int pageSize = 12;
         tasks = taskService.sortList(cities, sorting, page, pageSize);
+        System.out.println(tasks);
         double numOfPages = taskService.numberOfPages(12, tasks);
         model.addAttribute("task", tasks);
         model.addAttribute("currentPage", page);
         model.addAttribute("numOfPages", numOfPages);
         return "home2";
     }
+    @PostMapping("/stopFilter")
+    String slutaFiltrera(Model model,@RequestParam(required = false, defaultValue = "0") int page){
+        double numOfPages = taskService.numberOfPages(12);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("numOfPages", numOfPages);
+            return "redirect:/home";
+        }
+
 
     //TaskPage Controller
     @GetMapping("/task/{id}")
@@ -128,7 +136,7 @@ public class WebController {
         task.setCity(cities);
         task.setCreatedAt(LocalDateTime.now());
         task.setAddress(accountRepo.findById(id).get().address);
-        taskService.addTask(task);
+        taskService.addTask(task, br, ra);
         return "accountpage2";
 
     }

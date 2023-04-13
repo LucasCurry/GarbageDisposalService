@@ -1,8 +1,11 @@
 package com.example.repos;
 
 import com.example.Task;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,9 +15,21 @@ public class TaskService {
 
     @Autowired
     TaskRepo taskRepo;
-    private List<Task> tasks;
-    public void addTask(Task task) {
+
+    List<Task> tasks;
+
+    public String addTask(@Valid Task task, BindingResult br, RedirectAttributes ra) {
+        if(task.getPrice() == null){
+            br.rejectValue("price", "error", "Sätt ett pris.");
+            ra.addFlashAttribute("price", "Sätt ett pris.");
+            return "createTask";
+        }
+        if (br.hasErrors()){
+            ra.addFlashAttribute("FailedSignup", "Något blev fel, försök igen");
+            return "createTask";
+        }
         taskRepo.save(task);
+        return "home2";
     }
 
     public List<Task> sortList(String city, String sort, int page, int pageSize) {
@@ -75,6 +90,9 @@ public class TaskService {
     }
 
     public int numberOfPages(int pageSize, List<Task> tasks) {
+        return (int) Math.ceil((double) tasks.size() / pageSize);
+    }
+    public int numberOfPages(int pageSize) {
         return (int) Math.ceil((double) tasks.size() / pageSize);
     }
 }
