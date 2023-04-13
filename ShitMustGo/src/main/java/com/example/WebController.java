@@ -45,7 +45,7 @@ public class WebController {
     @GetMapping("/home")
     String home(Model model, @RequestParam(required = false, defaultValue = "0") int page) {
         tasks = taskService.getPage(page, 12);
-        double numOfPages = taskService.numberOfPages(12);
+        double numOfPages = taskService.numberOfPages(12, tasks);
         model.addAttribute("task", tasks);
         model.addAttribute("currentPage", page);
         model.addAttribute("numOfPages", numOfPages);
@@ -62,8 +62,9 @@ public class WebController {
     //Sorting Tasks
     @PostMapping("/home")
     String sortCity(Model model, @RequestParam(required = false, defaultValue = "") String cities, @RequestParam(required = false, defaultValue = "") String sorting, @RequestParam(required = false, defaultValue = "0") int page) {
-        tasks = taskService.sortList(cities, sorting, page);
-        double numOfPages = taskService.numberOfPages(12);
+        int pageSize = 12;
+        tasks = taskService.sortList(cities, sorting, page, pageSize);
+        double numOfPages = taskService.numberOfPages(12, tasks);
         model.addAttribute("task", tasks);
         model.addAttribute("currentPage", page);
         model.addAttribute("numOfPages", numOfPages);
@@ -127,7 +128,9 @@ public class WebController {
         task.setCity(cities);
         task.setCreatedAt(LocalDateTime.now());
         task.setAddress(accountRepo.findById(id).get().address);
-        return taskService.addTask(task, br, ra);
+        taskService.addTask(task);
+        return "accountpage2";
+
     }
     @GetMapping("/account/{id}/avboka")
     String avbokaTask(@PathVariable Long id) {
