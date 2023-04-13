@@ -1,8 +1,11 @@
 package com.example.repos;
 
 import com.example.Task;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -15,7 +18,19 @@ public class TaskService {
     public void addTask(Task task) {
     taskRepo.save(task);
     }
-
+    public String addTask(@Valid Task task, BindingResult br, RedirectAttributes ra) {
+        if(task.getPrice() == null){
+            br.rejectValue("price", "error", "Sätt ett pris.");
+            ra.addFlashAttribute("price", "Sätt ett pris.");
+            return "createTask";
+        }
+        if (br.hasErrors()){
+            ra.addFlashAttribute("FailedSignup", "Något blev fel, försök igen");
+            return "createTask";
+        }
+        taskRepo.save(task);
+        return "redirect:/";
+    }
     public List<Task> sortList(String city, String sort, int page) {
         int pageSize = 12;
         List<Task> tasks = getPage(page, pageSize);

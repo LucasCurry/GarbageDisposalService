@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>ShitMustGo Skapa konto</title>
+    <title>ShitMustGo - Skapa konto</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="/images/garbage-truck.png">
     <!-- Bootstrap icons-->
@@ -15,7 +15,7 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/style2.css" rel="stylesheet" />
 </head>
-<title>Shi mu Go Sign Up</title>
+<title>ShitMustGo - Registrera Konto</title>
 <body>
 <!-- Navigation-->
 <nav th:replace="~{fragments::navbar}"></nav>
@@ -92,22 +92,6 @@
                                     <label class="form-label" for="form3Example9">Telefonnummer</label>
                                     <p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" class="registerError"></p>
                                 </div>
-
-                                <!--<div class="form-outline mb-4">
-                                    <input type="text" id="form3Example90" class="form-control form-control-lg" />
-                                    <label class="form-label" for="form3Example90">Pincode</label>
-                                </div>
-
-                                <div class="form-outline mb-4">
-                                    <input type="text" id="form3Example99" class="form-control form-control-lg" />
-                                    <label class="form-label" for="form3Example99">Course</label>
-                                </div>
-
-                                <div class="form-outline mb-4">
-                                    <input type="text" id="form3Example97" class="form-control form-control-lg" />
-                                    <label class="form-label" for="form3Example97">Email ID</label>
-                                </div>-->
-
                                 <div class="d-flex justify-content-end pt-3">
                                     <button type="submit" class="btn btn-outline-light">Skapa konto</button>
                                 </div>

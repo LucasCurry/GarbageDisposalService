@@ -2,6 +2,9 @@ package com.example;
 
 import com.example.repos.AccountRepo;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
@@ -12,12 +15,16 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+    @NotEmpty (message = "Fält får inte vara tomt.")
     String title;
+    @NotEmpty (message = "Fält får inte vara tomt.")
     String description;
     String address;
     String city;
+    @NotEmpty(message = "Vänligen ange bildlänk.")
     String image;
-    int price;
+    @NotNull(message = "Fält får inte vara tomt.")
+    Integer price;
     Long accountId;
     Long bookedId;
     //@Temporal(TemporalType.TIMESTAMP)
@@ -27,7 +34,7 @@ public class Task {
     public Task() {
     }
 
-    public Task(String title, String address, String image, int price, String description, Long accountId, String city, LocalDateTime createdAt) {
+    public Task(String title, String address, String image, Integer price, String description, Long accountId, String city, LocalDateTime createdAt) {
         this.title = title;
         this.address = address;
         this.image = image;
@@ -77,11 +84,11 @@ public class Task {
         this.address = address;
     }
 
-    public int getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 

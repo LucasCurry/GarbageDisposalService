@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>ShitMustGo Uppdragsida</title>
+    <title>ShitMustGo - Uppdragsida</title>
 
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="/images/garbage-truck.png">
@@ -50,6 +50,9 @@
                   <div th:if="${task.bookedId != null && task.isAccepted}">
                       <a class="btn btn-outline-dark flex-shrink-0" th:href="'/task/' + ${task.id} + '/payment'">BETALA</a>
                   </div>
+              </div>
+              <div sec:authorize="isAuthenticated()" th:if="${task.bookedId == accountid && !task.isAccepted}">
+                  <a class="btn btn-outline-dark flex-shrink-0" th:href="'/account/' + ${task.id} + '/avboka'">Avboka</a>
               </div>
           </form>
         </div>

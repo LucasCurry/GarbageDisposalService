@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>ShitMustGo Skapa uppdrag</title>
+    <title>ShitMustGo - Skapa uppdrag</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="/images/garbage-truck.png">
     <!-- Bootstrap icons-->
@@ -18,32 +18,78 @@
 <nav th:replace="fragments::navbar"></nav>
 <!-- Header-->
 <header th:insert="~{fragments::header}"> </header>
-<form th:class="new-task" action="/account/create" method="post">
-    <div class="row">
-        <div class="col">
-            <input type="text" name="title" class="form-control" placeholder="Rubrik">
-        </div>
-        <div class="col">
-            <input type="text" name="description" class="form-control" placeholder="Beskrivning">
-        </div>
-        <div class="col">
-            <input type="number" class="form-control" name="price" placeholder="Pris">
-        </div>
-        <div class="col">
-            <input type="text" class="form-control" name="image" placeholder="Bild länk">
+<div th:if="${FailedSignup}" class="alert alert-danger" role="alert" text-center>
+    [[${FailedSignup}]]
+</div>
+
+<section class="h-100 bg-white registerform">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <div class="card card-registration my-4 header">
+                    <div class="row g-0">
+                        <div class="col-xl-6 d-none d-xl-block registerImg">
+                            <img th:class="truckerFucker" src="/images/garbage-truck.png" alt="Sample photo" class="img-fluid"
+                                 style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem; margin-left: 70px; margin-top: 150px;" />
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="card-body p-md-5 text-white">
+                                <h3 class="mb-5 text-uppercase">Skapa Uppdrag</h3>
+                                <form action="/account/create" method="post" th:object="${task}">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                <input type="text" id="form3Example1m" class="form-control form-control-lg" th:field="*{title}" />
+                                                <label class="form-label" for="form3Example1m">Rubrik</label>
+                                                <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="registerError"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                            <input type="text" id="form3Example1n" class="form-control form-control-lg"th:field="*{description}" />
+                                            <label class="form-label" for="form3Example1n">Beskrivning</label>
+                                            <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="registerError"></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                <input type="number" id="form3Example1m1" class="form-control form-control-lg" th:field="*{price}"/>
+                                                <label class="form-label" for="form3Example1m1" >Pris</label>
+                                                <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="registerError"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <input type="text" id="form3Example8" class="form-control form-control-lg" th:field="*{image}"/>
+                                        <label class="form-label" for="form3Example8">Bild länk</label>
+                                        <p th:if="${#fields.hasErrors('image')}" th:errors="*{image}" class="registerError"></p>
+                                    </div>
+                                    <div>
+                                        <label for="cities">
+                                            <select name="cities" id="cities" class="form-select ">
+                                                <option value="Stockholm">Stockholm</option>
+                                                <option value="Göteborg">Göteborg</option>
+                                                <option value="Malmö">Malmö</option>
+                                            </select>
+                                        </label>
+                                        <input type="submit" value="Skapa Uppdrag" class="btn btn-outline-light margin-l10-b5">
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div>
-        <label for="cities">
-            <select name="cities" id="cities" class="ctButton ">
-                <option value="Stockholm">Stockholm</option>
-                <option value="Göteborg">Göteborg</option>
-                <option value="Malmö">Malmö</option>
-            </select>
-        </label>
-        <input type="submit" value="Skapa" class="ctButton">
     </div>
-</form>
+</section>
+
 <footer th:fragment="footer" class="py-1 mt-auto fixed-bottom header">
     <div class="container"><p class="m-0 text-center text-white">Copyright &copy; ShitMustGo 2023</p></div>
 </footer>

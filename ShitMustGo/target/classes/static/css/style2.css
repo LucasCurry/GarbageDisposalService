@@ -10843,6 +10843,7 @@ max-height: 267px;
 min-height: 267px;
 height: auto;
 overflow-x: hidden;
+border-radius: 15px;
 }
 
 .home-img-thumbnail {
@@ -10910,6 +10911,10 @@ height: 350px;
 }
 .margin-bottom-60 {
 margin-bottom: 60px;
+}
+
+.margin-bottom-30 {
+margin-bottom: 30px;
 }
 
 .registerError {
@@ -10986,4 +10991,9 @@ border: 3px solid;
 border-radius: 15px;
 border-color: #5c715e;
 box-shadow: 10px 5px 5px gray;
+}
+
+.margin-l10-b5{
+margin-left: 10px;
+margin-bottom: 5px;
 }
