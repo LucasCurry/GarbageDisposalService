@@ -1,2 +1,2 @@
-# Vitt-Ris-Och-Kyckling
+# ShitMustGo
 Broccoli
